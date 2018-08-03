@@ -1,0 +1,42 @@
+{
+  "name": "formik-semantic-ui",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "formik-semantic-ui",
+    "formik",
+    "semantic-ui",
+    "semantic-ui-react",
+    "turner industries"
+  ],
+  "scripts": {
+    "start": "react-scripts start",
+    "build-examples": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build": "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
+  },
+  "peerDependencies": {
+    "formik": "^1.0.0",
+    "react": "^15.6.1 || ^16.0.0",
+    "react-dom": "^15.6.1 || ^16.0.0",
+    "semantic-ui-react": "^0.82.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "formik": "^1.0.0",
+    "moment": "^2.22.2",
+    "react": "^16.4.2",
+    "react-dates": "^17.1.1",
+    "react-dom": "^16.4.2",
+    "react-dropzone": "^4.2.13",
+    "react-scripts": "^1.1.4",
+    "rimraf": "^2.6.2",
+    "semantic-ui-css": "^2.3.3",
+    "semantic-ui-react": "^0.82.0"
+  }
+}

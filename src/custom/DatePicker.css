@@ -1,0 +1,16 @@
+.SingleDatePicker,
+.SingleDatePicker > div,
+.SingleDatePickerInput,
+.SingleDatePickerInput > div {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.DateInput_fang {
+  margin-top: 1px;
+}
+
+.DayPicker__withBorder {
+  box-shadow: 0px 1px 11px 1px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 0, 0, 0.07) !important;
+}
