@@ -5,20 +5,33 @@ import { Container, Header, Segment } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import "./index.css";
 
+import SimpleForm from "./forms/SimpleForm";
 import ExampleForm from "./forms/ExampleForm";
 
 class App extends Component {
   render() {
     return (
-      <Container style={{ paddingTop: 50 }}>
-        <Header as="h2" attached="top" inverted>
-          Formik-Semantic-UI
-        </Header>
+      <React.Fragment>
+        <Header as="h1">Formik-Semantic-UI</Header>
+        <Container style={{ paddingTop: 50 }}>
+          <Header as="h2" attached="top" inverted>
+            Simple Form
+          </Header>
 
-        <Segment attached>
-          <ExampleForm />
-        </Segment>
-      </Container>
+          <Segment attached>
+            <SimpleForm />
+          </Segment>
+        </Container>
+        <Container style={{ paddingTop: 50 }}>
+          <Header as="h2" attached="top" inverted>
+            Render/Child Function Props
+          </Header>
+
+          <Segment attached>
+            <ExampleForm />
+          </Segment>
+        </Container>
+      </React.Fragment>
     );
   }
 }
