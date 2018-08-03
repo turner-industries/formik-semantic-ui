@@ -3,26 +3,24 @@ import React, { Component } from "react";
 import { Button, Form, Input } from "../lib/index";
 
 class SimpleForm extends Component {
+  static defaultProps = {
+    person: {
+      emailAddress: "",
+      firstName: "",
+      lastName: ""
+    }
+  };
   _handleSubmit = (values, formikApi) => {
-    console.log(values);
-    setTimeout(() => {
-      Object.keys(values).forEach(key => {
-        formikApi.setFieldError(key, "Some Error");
-      });
-      formikApi.setSubmitting(false);
-    }, 1000);
+    // Make API Call
+    console.log(values, formikApi);
+    // Handle response / Errors
+    formikApi.setFieldError("emailAddress", "Invalid Email");
+    formikApi.setSubmitting(false);
   };
 
   render() {
     return (
-      <Form
-        initialValues={{
-          emailAddress: "",
-          firstName: "",
-          lastName: ""
-        }}
-        onSubmit={this._handleSubmit}
-      >
+      <Form initialValues={this.props.person} onSubmit={this._handleSubmit}>
         <Input label="Email" name="emailAddress" />
 
         <Form.Group widths="2">

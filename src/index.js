@@ -24,6 +24,21 @@ class App extends Component {
         </Container>
         <Container style={{ paddingTop: 50 }}>
           <Header as="h2" attached="top" inverted>
+            Simple Form with Data
+          </Header>
+
+          <Segment attached>
+            <SimpleForm
+              person={{
+                emailAddress: "jobney@turner-industries.com",
+                firstName: "Justin",
+                lastName: "Obney"
+              }}
+            />
+          </Segment>
+        </Container>
+        <Container style={{ paddingTop: 50 }}>
+          <Header as="h2" attached="top" inverted>
             Render/Child Function Props
           </Header>
 
