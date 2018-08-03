@@ -38,19 +38,7 @@ Produce Semantic-UI:
 
 ### Form Helpers
 
-Button
-
-`<Button {...props} type="button" />`
-
-Button.Submit
-
- `<Button primary {...props} type="submit"  />`
-
-Button.Reset
-
-`<Button basic {...props} type="button" onClick={handleReset} />` (Connected to Formik)
-
-Form
+`<Form />`
 
 - Usage
   - [Simple Usage](#simple-usage) - Components as children
@@ -75,7 +63,13 @@ Ex:
 />
 ```
 
-Form.Children - alias for `<React.Fragment>` to better show intent when using render prop
+`<Form.Children />` - alias for `<React.Fragment>` to better show intent when using render prop
+
+## Buttons
+
+- Button - `<Button {...props} type="button" />`
+- Button.Submit - `<Button primary {...props} type="submit"  />`
+- Button.Reset - `<Button basic {...props} type="button" onClick={handleReset} />` 
 
 ## Simple Usage
 
