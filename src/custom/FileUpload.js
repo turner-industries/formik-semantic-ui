@@ -125,19 +125,9 @@ class FileUpload extends Component {
                   );
                 }}
               </Dropzone>
-              {form.errors[name] &&
-                form.touched[name] && (
-                  <span
-                    style={{
-                      display: "block",
-                      margin: ".28571429rem 0",
-                      color: "rgb(159, 58, 56)",
-                      fontSize: ".92857143em"
-                    }}
-                  >
-                    {form.errors[name]}
-                  </span>
-                )}
+              {error && (
+                <span className="sui-error-message">{form.errors[name]}</span>
+              )}
             </Form.Field>
           );
         }}
