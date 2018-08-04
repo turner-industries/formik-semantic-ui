@@ -2,7 +2,28 @@
 
 Wrappers for [formik](https://github.com/jaredpalmer/formik) that simplify usage with [semantic-ui-react](https://github.com/Semantic-Org/Semantic-UI-React).
 
+Benefits:
+* No need to manage form state
+* handles `onChange` for you
+* Normalize all input events to provide a `value` (Ex: `value: true` for Checkbox instead of `checked`
+* Easily handle showing validation messages from client or server
+* REDUCES BOILERPLATE
+
 **Install:** `npm i formik-semantic-ui`
+
+Ex:
+
+```js
+<Form initialValues={{emailAddress:""}} onSubmit={(values, formikApi) => {
+  api.save(values);
+  formikApi.setFieldError('emailAdress', 'already in use')
+}}>
+  <Input label="Email" name="emailAddress" />
+
+  <Button.Submit>Submit</Button.Submit>
+  <Button.Reset>Cancel</Button.Reset>
+</Form>
+```
 
 Demo: https://codesandbox.io/s/ywjoykw95x
 
@@ -41,8 +62,8 @@ Produce Semantic-UI:
 `<Form />`
 
 - Usage
-  - [Simple Usage](#simple-usage) - Components as children
-  - Enhanced Usage - "Render Prop" similar to default Formik "Render Prop"
+  - [Simple Usage](https://github.com/turner-industries/formik-semantic-ui/blob/master/src/forms/SimpleForm.js) - Components as children
+  - [Enhanced Usage](https://github.com/turner-industries/formik-semantic-ui/blob/master/src/forms/ExampleForm.js) - "Render Prop" similar to default Formik "Render Prop"
     - `render={formikProps => <Form />}`
     - function as a child
 - Automatically binds Formik `handleSubmit` for Semantic UI Form `onSubmit`
@@ -70,48 +91,6 @@ Ex:
 - Button - `<Button {...props} type="button" />`
 - Button.Submit - `<Button primary {...props} type="submit"  />`
 - Button.Reset - `<Button basic {...props} type="button" onClick={handleReset} />` 
-
-## Simple Usage
-
-```js
-import React, { Component } from "react";
-import { Button, Form, Input } from "formik-semantic-ui";
-
-class SimpleForm extends Component {
-  static defaultProps = {
-    person: {
-      emailAddress: "",
-      firstName: "",
-      lastName: ""
-    }
-  };
-  _handleSubmit = (values, formikApi) => {
-    // Make API Call
-    console.log(values, formikApi);
-    // Handle response / Errors
-    formikApi.setFieldError("emailAddress", "Invalid Email");
-    formikApi.setSubmitting(false);
-  };
-
-  render() {
-    return (
-      <Form initialValues={this.props.person} onSubmit={this._handleSubmit}>
-        <Input label="Email" name="emailAddress" />
-
-        <Form.Group widths="2">
-          <Input label="First Name" name="firstName" />
-          <Input label="Last Name" name="lastName" />
-        </Form.Group>
-
-        <Button.Submit>Submit</Button.Submit>
-        <Button.Reset>Cancel</Button.Reset>
-      </Form>
-    );
-  }
-}
-
-export default SimpleForm;
-```
 
 ## Creating Custom Components
 
