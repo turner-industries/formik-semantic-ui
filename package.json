@@ -51,5 +51,30 @@
     "semi": true,
     "trailingComma": "es5",
     "bracketSpacing": false
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "globals": {
+      "jasmine": true
+    },
+    "rules": {
+      "semi": [
+        "warn",
+        "always"
+      ],
+      "indent": [
+        "off",
+        2
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "object-curly-spacing": [
+        "error",
+        "never"
+      ],
+      "no-use-before-define": 0
+    }
   }
 }
