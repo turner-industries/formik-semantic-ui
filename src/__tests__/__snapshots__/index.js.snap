@@ -1,0 +1,358 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formik-semantic-ui Basic Components Checkbox: default  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="field"
+    >
+      <div
+        class="ui checked checkbox"
+      >
+        <input
+          class="hidden"
+          id="field_checkbox_0"
+          name="checked"
+          readonly=""
+          tabindex="0"
+          type="checkbox"
+          value=""
+        />
+        <label
+          for="field_checkbox_0"
+        >
+          Checked
+        </label>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Basic Components Dropdown: default  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="field"
+    >
+      <label
+        for="field_dropdown_0"
+      >
+        Name
+      </label>
+      <div
+        id="field_dropdown_0"
+        name="name"
+        role="listbox"
+        aria-expanded="false"
+        class="ui selection dropdown"
+        tabindex="0"
+      >
+        <div
+          class="text"
+          role="alert"
+          aria-live="polite"
+        />
+        <i
+          aria-hidden="true"
+          class="dropdown icon"
+        />
+        <div
+          class="menu transition"
+        >
+          <div
+            style="pointer-events: all;"
+            role="option"
+            aria-checked="false"
+            aria-selected="true"
+            class="selected item"
+          >
+            <span
+              class="text"
+            >
+              Justin
+            </span>
+          </div>
+          <div
+            style="pointer-events: all;"
+            role="option"
+            aria-checked="false"
+            aria-selected="false"
+            class="item"
+          >
+            <span
+              class="text"
+            >
+              Not Justin
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Basic Components Input default  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="field"
+    >
+      <label
+        for="field_input_0"
+      >
+        Name
+      </label>
+      <div
+        class="ui input"
+      >
+        <input
+          id="field_input_0"
+          name="name"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Basic Components Input with custom "id"  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="field"
+    >
+      <label
+        for="my-custom-id"
+      >
+        Name
+      </label>
+      <div
+        class="ui input"
+      >
+        <input
+          id="my-custom-id"
+          name="name"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Basic Components Input with initial value  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="field"
+    >
+      <label
+        for="field_input_1"
+      >
+        Name
+      </label>
+      <div
+        class="ui input"
+      >
+        <input
+          id="field_input_1"
+          name="name"
+          type="text"
+          value="Justin"
+        />
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Basic Components Input with input props and field props  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="eight wide field"
+    >
+      <label
+        for="field_input_2"
+      >
+        Name
+      </label>
+      <div
+        class="ui input"
+      >
+        <input
+          id="field_input_2"
+          name="name"
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Basic Components Input without label and with custom "id"  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="field"
+    >
+      <div
+        class="ui input"
+      >
+        <input
+          id="my-custom-id"
+          name="name"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Basic Components TextArea: default  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="field"
+    >
+      <label
+        for="field_textarea_0"
+      >
+        Name
+      </label>
+      <textarea
+        id="field_textarea_0"
+        name="name"
+        rows="4"
+      />
+    </div>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Buttons Button.Reset 1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <button
+      type="button"
+      class="ui basic button"
+      role="button"
+    >
+      Basic Button
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Buttons Button.Submit 1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <button
+      type="submit"
+      class="ui primary button"
+      role="button"
+    >
+      Basic Button
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Buttons default 1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <button
+      type="button"
+      class="ui button"
+      role="button"
+    >
+      Basic Button
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Form child as a function 1`] = `
+<div>
+  <form
+    class="ui loading form"
+  >
+    <button
+      type="submit"
+      class="ui primary disabled button"
+      role="button"
+      disabled=""
+      tabindex="-1"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Form ignore loading 1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <button
+      type="submit"
+      class="ui primary disabled button"
+      role="button"
+      disabled=""
+      tabindex="-1"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Form render props 1`] = `
+<div>
+  <form
+    class="ui loading form"
+  >
+    <button
+      type="submit"
+      class="ui primary disabled button"
+      role="button"
+      disabled=""
+      tabindex="-1"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
