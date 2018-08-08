@@ -1,20 +1,20 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 
-import { Button, Form, Input } from "../lib/index";
+import {Button, Form, Input} from '../lib/index';
 
 class SimpleForm extends Component {
   static defaultProps = {
     person: {
-      emailAddress: "",
-      firstName: "",
-      lastName: ""
-    }
+      emailAddress: '',
+      firstName: '',
+      lastName: '',
+    },
   };
   _handleSubmit = (values, formikApi) => {
     // Make API Call
     console.log(values, formikApi);
     // Handle response / Errors
-    formikApi.setFieldError("emailAddress", "Invalid Email");
+    formikApi.setFieldError('emailAddress', 'Invalid Email');
     formikApi.setSubmitting(false);
   };
 

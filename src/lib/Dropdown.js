@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Form, Dropdown } from "semantic-ui-react";
-import { Field } from "formik";
+import React, {Component} from 'react';
+import {Form, Dropdown} from 'semantic-ui-react';
+import {Field} from 'formik';
 
 let fieldCounter = 0;
 class FormikDropdown extends Component {
@@ -10,17 +10,11 @@ class FormikDropdown extends Component {
   }
 
   render() {
-    const {
-      name,
-      label,
-      options,
-      inputProps = {},
-      fieldProps = {}
-    } = this.props;
+    const {name, label, options, inputProps = {}, fieldProps = {}} = this.props;
     return (
       <Field
         name={name}
-        render={({ field, form }) => {
+        render={({field, form}) => {
           const error = form.touched[name] && form.errors[name];
           return (
             <Form.Field error={!!error} {...fieldProps}>
@@ -39,7 +33,7 @@ class FormikDropdown extends Component {
                 selection
                 {...inputProps}
                 value={field.value}
-                onChange={(e, { name, value }) => {
+                onChange={(e, {name, value}) => {
                   form.setFieldValue(name, value, true);
                 }}
               />

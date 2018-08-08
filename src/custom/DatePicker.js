@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Form } from "semantic-ui-react";
-import { Field } from "formik";
-import moment from "moment";
-import { SingleDatePicker } from "react-dates";
+import React, {Component} from 'react';
+import {Form} from 'semantic-ui-react';
+import {Field} from 'formik';
+import moment from 'moment';
+import {SingleDatePicker} from 'react-dates';
 
-import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
-import "./DatePicker.css";
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import './DatePicker.css';
 
 const getDate = date => {
   if (getDate._last !== date) {
@@ -19,7 +19,7 @@ const getDate = date => {
 let fieldCounter = 0;
 class FormikDatePicker extends Component {
   state = {
-    focused: false
+    focused: false,
   };
 
   constructor(props) {
@@ -28,11 +28,11 @@ class FormikDatePicker extends Component {
   }
 
   render() {
-    const { name, label, inputProps = {}, fieldProps = {} } = this.props;
+    const {name, label, inputProps = {}, fieldProps = {}} = this.props;
     return (
       <Field
         name={name}
-        render={({ field, form }) => {
+        render={({field, form}) => {
           const error = form.touched[name] && form.errors[name];
           return (
             <Form.Field error={!!error} {...fieldProps}>
@@ -41,7 +41,7 @@ class FormikDatePicker extends Component {
                 id={this.id}
                 inputIconPosition="after"
                 focused={this.state.focused}
-                onFocusChange={({ focused }) => this.setState({ focused })}
+                onFocusChange={({focused}) => this.setState({focused})}
                 noBorder
                 readOnly
                 enableOutsideDays
@@ -68,7 +68,7 @@ class FormikDatePicker extends Component {
   }
 }
 
-const YEARS = Array.from({ length: 100 })
+const YEARS = Array.from({length: 100})
   .map((_, idx) => moment().year() - (idx + 1))
   .reverse()
   .concat(moment().year());
@@ -77,9 +77,9 @@ const YearMonthSelector = ({
   month,
   onMonthSelect,
   onYearSelect,
-  years = YEARS
+  years = YEARS,
 }) => (
-  <div style={{ display: "flex", justifyContent: "center" }}>
+  <div style={{display: 'flex', justifyContent: 'center'}}>
     <div>
       <select
         value={month.month()}

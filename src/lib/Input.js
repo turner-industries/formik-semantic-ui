@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Form, Input } from "semantic-ui-react";
-import { Field } from "formik";
+import React, {Component} from 'react';
+import {Form, Input} from 'semantic-ui-react';
+import {Field} from 'formik';
 
 let fieldCounter = 0;
 class FormikInput extends Component {
@@ -10,11 +10,11 @@ class FormikInput extends Component {
   }
 
   render() {
-    const { name, label, inputProps = {}, fieldProps = {} } = this.props;
+    const {name, label, inputProps = {}, fieldProps = {}} = this.props;
     return (
       <Field
         name={name}
-        render={({ field, form }) => {
+        render={({field, form}) => {
           const error = form.touched[name] && form.errors[name];
           return (
             <Form.Field error={!!error} {...fieldProps}>
@@ -23,7 +23,7 @@ class FormikInput extends Component {
                 id={this.id}
                 name={name}
                 value={field.value}
-                onChange={(e, { name, value }) => {
+                onChange={(e, {name, value}) => {
                   form.setFieldValue(name, value, true);
                 }}
                 {...inputProps}

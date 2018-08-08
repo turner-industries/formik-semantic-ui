@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { Form, Header, Icon, Progress, Segment } from "semantic-ui-react";
-import { Field } from "formik";
-import Dropzone from "react-dropzone";
+import React, {Component} from 'react';
+import {Form, Header, Icon, Progress, Segment} from 'semantic-ui-react';
+import {Field} from 'formik';
+import Dropzone from 'react-dropzone';
 // import p from "prop-types";
 
 const validFileStyle = {
-  borderColor: "blue"
+  borderColor: 'blue',
 };
 
 const invalidFileStyle = {
-  borderColor: "red"
+  borderColor: 'red',
 };
 
 const emptyStyle = {};
@@ -18,7 +18,7 @@ let fieldCounter = 0;
 class FileUpload extends Component {
   state = {
     uploading: false,
-    progress: 0
+    progress: 0,
   };
 
   constructor(props) {
@@ -27,18 +27,18 @@ class FileUpload extends Component {
   }
 
   _onDrop = form => {
-    const { name } = this.props;
-    this.setState({ uploading: true, progress: 0 }, () => {
+    const {name} = this.props;
+    this.setState({uploading: true, progress: 0}, () => {
       this._counter = setInterval(() => {
         this.setState(
           state => ({
-            progress: state.progress + 10
+            progress: state.progress + 10,
           }),
           () => {
             if (this.state.progress >= 100) {
               clearInterval(this._counter);
-              form.setFieldValue(name, "url://some_url", true);
-              this.setState({ uploading: false });
+              form.setFieldValue(name, 'url://some_url', true);
+              this.setState({uploading: false});
             }
           }
         );
@@ -47,11 +47,11 @@ class FileUpload extends Component {
   };
 
   render() {
-    const { name, label, fieldProps = {}, inputProps = {} } = this.props;
+    const {name, label, fieldProps = {}, inputProps = {}} = this.props;
     return (
       <Field
         name={name}
-        render={({ field, form }) => {
+        render={({field, form}) => {
           const error = form.touched[name] && form.errors[name];
           return (
             <Form.Field error={!!error} {...fieldProps}>
@@ -67,22 +67,22 @@ class FileUpload extends Component {
                   }
                 }}
               >
-                {({ isDragActive, isDragReject, acceptedFiles }) => {
+                {({isDragActive, isDragReject, acceptedFiles}) => {
                   const wrapperStyle = {
-                    border: "1px dashed rgba(34,36,38,.15)",
-                    boxShadow: "none",
-                    cursor: "copy",
+                    border: '1px dashed rgba(34,36,38,.15)',
+                    boxShadow: 'none',
+                    cursor: 'copy',
                     ...(isDragActive ? validFileStyle : emptyStyle),
-                    ...(isDragReject || error ? invalidFileStyle : emptyStyle)
+                    ...(isDragReject || error ? invalidFileStyle : emptyStyle),
                   };
-                  const { uploading, progress } = this.state;
+                  const {uploading, progress} = this.state;
                   const file = [...acceptedFiles].pop();
                   const hasFile = !!file && !uploading && field.value;
                   const color = hasFile
-                    ? "green"
+                    ? 'green'
                     : isDragActive || uploading
-                      ? "blue"
-                      : "grey";
+                      ? 'blue'
+                      : 'grey';
 
                   const showProgress = !!progress && (hasFile || uploading);
 
@@ -108,7 +108,7 @@ class FileUpload extends Component {
                             <React.Fragment>
                               {file.name} - {file.size} bytes
                               <Header.Subheader>
-                                {uploading ? "Uploading.." : "Uploaded"}.
+                                {uploading ? 'Uploading..' : 'Uploaded'}.
                               </Header.Subheader>
                             </React.Fragment>
                           ) : (

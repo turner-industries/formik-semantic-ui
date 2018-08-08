@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import { render } from "react-dom";
-import { Container, Header, Segment } from "semantic-ui-react";
+import React, {Component} from 'react';
+import {render} from 'react-dom';
+import {Container, Header, Segment} from 'semantic-ui-react';
 
-import "semantic-ui-css/semantic.min.css";
-import "./index.css";
+import 'semantic-ui-css/semantic.min.css';
+import './index.css';
 
-import SimpleForm from "./forms/SimpleForm";
-import ExampleForm from "./forms/ExampleForm";
+import SimpleForm from './forms/SimpleForm';
+import ExampleForm from './forms/ExampleForm';
 
 class App extends Component {
   render() {
     return (
       <React.Fragment>
         <Header as="h1">Formik-Semantic-UI</Header>
-        <Container style={{ paddingTop: 50 }}>
+        <Container style={{paddingTop: 50}}>
           <Header as="h2" attached="top" inverted>
             Simple Form
           </Header>
@@ -22,7 +22,7 @@ class App extends Component {
             <SimpleForm />
           </Segment>
         </Container>
-        <Container style={{ paddingTop: 50 }}>
+        <Container style={{paddingTop: 50}}>
           <Header as="h2" attached="top" inverted>
             Simple Form with Data
           </Header>
@@ -30,14 +30,14 @@ class App extends Component {
           <Segment attached>
             <SimpleForm
               person={{
-                emailAddress: "jobney@turner-industries.com",
-                firstName: "Justin",
-                lastName: "Obney"
+                emailAddress: 'jobney@turner-industries.com',
+                firstName: 'Justin',
+                lastName: 'Obney',
               }}
             />
           </Segment>
         </Container>
-        <Container style={{ paddingTop: 50 }}>
+        <Container style={{paddingTop: 50}}>
           <Header as="h2" attached="top" inverted>
             Render/Child Function Props
           </Header>
@@ -51,4 +51,4 @@ class App extends Component {
   }
 }
 
-render(<App />, document.getElementById("root"));
+render(<App />, document.getElementById('root'));
