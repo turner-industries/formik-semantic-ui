@@ -94,8 +94,66 @@ Ex:
 
 ## Creating Custom Components
 
-TODO: Create a better factory
+### TODO: Create a better factory
 
 Current:
 - [DatePicker](https://github.com/turner-industries/formik-semantic-ui/blob/master/src/custom/DatePicker.js)
 - [FileUpload](https://github.com/turner-industries/formik-semantic-ui/blob/master/src/custom/FileUpload.js)
+
+## Schema Driven
+
+### Basics
+- Object `keys` map to component `name` prop
+- Defaults to `Input` if type is unknown
+- Unknown types pass their `type` to `Input type={type}`
+- You can provide an initial value
+- Ver basic width via `fieldProps`
+
+
+### TODO:
+- Document this better
+- Handle grouping
+
+Usage:
+
+```js
+<Form
+  onSubmit={this._handleSubmit}
+  schema={{
+    emailAddress: {
+      label: 'Email Address',
+      type: 'text',
+      value: 'justinobney@gmail.com',
+    },
+    ssn: {
+      label: 'SSN',
+      type: 'password',
+      fieldProps: {
+        width: 8,
+      },
+    },
+    notes: {
+      label: 'Notes',
+      type: 'textarea',
+      inputProps: {
+        rows: '6',
+      },
+    },
+    likes: {
+      label: 'Favorite Food',
+      type: 'dropdown',
+      options: [
+        {text: 'Pizza', value: 'pizza'},
+        {text: 'I am wrong', value: 'im-wrong'},
+      ],
+    },
+    agree: {
+      label: 'I Agree',
+      type: 'checkbox',
+    },
+  }}
+>
+  <Button.Submit>Submit</Button.Submit>
+  <Button.Reset>Cancel</Button.Reset>
+</Form>
+```

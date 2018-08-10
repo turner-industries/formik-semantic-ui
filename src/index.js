@@ -7,6 +7,7 @@ import './index.css';
 
 import SimpleForm from './forms/SimpleForm';
 import ExampleForm from './forms/ExampleForm';
+import SchemaForm from './forms/SchemaForm';
 
 class App extends Component {
   render() {
@@ -44,6 +45,15 @@ class App extends Component {
 
           <Segment attached>
             <ExampleForm />
+          </Segment>
+        </Container>
+        <Container style={{paddingTop: 50}}>
+          <Header as="h2" attached="top" inverted>
+            Schema Form
+          </Header>
+
+          <Segment attached>
+            <SchemaForm />
           </Segment>
         </Container>
       </React.Fragment>
