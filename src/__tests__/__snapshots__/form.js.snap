@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form child as a function 1`] = `
+<div>
+  <form
+    class="ui loading form"
+  >
+    <button
+      type="submit"
+      class="ui primary disabled button"
+      role="button"
+      disabled=""
+      tabindex="-1"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Form ignore loading 1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <button
+      type="submit"
+      class="ui primary disabled button"
+      role="button"
+      disabled=""
+      tabindex="-1"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Form render props 1`] = `
+<div>
+  <form
+    class="ui loading form"
+  >
+    <button
+      type="submit"
+      class="ui primary disabled button"
+      role="button"
+      disabled=""
+      tabindex="-1"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;

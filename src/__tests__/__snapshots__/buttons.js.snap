@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons Button.Reset 1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <button
+      type="button"
+      class="ui basic button"
+      role="button"
+    >
+      Basic Button
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Buttons Button.Submit 1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <button
+      type="submit"
+      class="ui primary button"
+      role="button"
+    >
+      Basic Button
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Buttons default 1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <button
+      type="button"
+      class="ui button"
+      role="button"
+    >
+      Basic Button
+    </button>
+  </form>
+</div>
+`;

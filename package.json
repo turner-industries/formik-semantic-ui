@@ -29,17 +29,20 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-latest": "6.24.1",
     "formik": "^1.0.0",
     "moment": "^2.22.2",
     "react": "^16.4.2",
     "react-dates": "^17.1.1",
     "react-dom": "^16.4.2",
-    "react-dropzone": "^4.2.13",
+    "react-dropzone": "^4.3.0",
     "react-scripts": "^1.1.4",
-    "react-testing-library": "^4.1.7",
+    "react-testing-library": "^5.0.0",
     "rimraf": "^2.6.2",
     "semantic-ui-css": "^2.3.3",
-    "semantic-ui-react": "^0.82.0"
+    "semantic-ui-react": "^0.82.2"
   },
   "dependencies": {
     "hoist-non-react-statics": "^3.0.1"
