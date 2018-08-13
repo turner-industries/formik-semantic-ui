@@ -11,6 +11,7 @@ class FormikCheckbox extends Component {
 
   render() {
     const {name, label, inputProps = {}, fieldProps = {}} = this.props;
+    const {onChange, ...safeInputProps} = inputProps;
     return (
       <Field
         name={name}
@@ -22,11 +23,12 @@ class FormikCheckbox extends Component {
                 id={this.id}
                 name={name}
                 label={label}
+                {...safeInputProps}
                 checked={field.value}
                 onChange={(e, {name, checked}) => {
                   form.setFieldValue(name, checked, true);
+                  onChange && onChange(e, {name, value: checked});
                 }}
-                {...inputProps}
               />
               {error && (
                 <span className="sui-error-message">{form.errors[name]}</span>

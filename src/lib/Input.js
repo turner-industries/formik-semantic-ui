@@ -11,6 +11,7 @@ class FormikInput extends Component {
 
   render() {
     const {name, label, inputProps = {}, fieldProps = {}} = this.props;
+    const {onChange, ...safeInputProps} = inputProps;
     return (
       <Field
         name={name}
@@ -22,11 +23,12 @@ class FormikInput extends Component {
               <Input
                 id={this.id}
                 name={name}
+                {...safeInputProps}
                 value={field.value}
                 onChange={(e, {name, value}) => {
                   form.setFieldValue(name, value, true);
+                  onChange && onChange(e, {name, value});
                 }}
-                {...inputProps}
               />
               {error && (
                 <span className="sui-error-message">{form.errors[name]}</span>

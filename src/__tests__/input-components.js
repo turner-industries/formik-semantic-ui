@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, cleanup} from 'react-testing-library';
+import {fireEvent, render, cleanup} from 'react-testing-library';
 
 import {Checkbox, Dropdown, Form, Input, TextArea} from '../lib/index';
 
@@ -57,6 +57,24 @@ describe('formik-semantic-ui', () => {
         </Form>
       );
       expect(container).toMatchSnapshot();
+    });
+
+    it('ability to add additional onChange handlers', () => {
+      const onChange = jest.fn();
+      const {getByLabelText} = render(
+        <Form initialValues={{name: ''}}>
+          <Input
+            label="Name"
+            name="name"
+            inputProps={{
+              onChange: (e, {name, value}) => onChange({name, value}),
+            }}
+          />
+        </Form>
+      );
+      const input = getByLabelText('Name');
+      fireEvent.change(input, {target: {value: 'Test'}});
+      expect(onChange).toHaveBeenCalledWith({name: 'name', value: 'Test'});
     });
   });
 

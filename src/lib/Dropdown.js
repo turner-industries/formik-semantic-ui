@@ -11,6 +11,7 @@ class FormikDropdown extends Component {
 
   render() {
     const {name, label, options, inputProps = {}, fieldProps = {}} = this.props;
+    const {onChange, ...safeInputProps} = inputProps;
     return (
       <Field
         name={name}
@@ -31,10 +32,11 @@ class FormikDropdown extends Component {
                 selectOnBlur={false}
                 selectOnNavigation={false}
                 selection
-                {...inputProps}
+                {...safeInputProps}
                 value={field.value}
                 onChange={(e, {name, value}) => {
                   form.setFieldValue(name, value, true);
+                  onChange && onChange(e, {name, value});
                 }}
               />
               {error && (

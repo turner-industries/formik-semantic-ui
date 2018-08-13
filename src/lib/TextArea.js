@@ -11,6 +11,7 @@ class FormikTextArea extends Component {
 
   render() {
     const {name, label, inputProps = {}, fieldProps = {}} = this.props;
+    const {onChange, ...safeInputProps} = inputProps;
     return (
       <Field
         name={name}
@@ -22,12 +23,13 @@ class FormikTextArea extends Component {
               <TextArea
                 id={this.id}
                 name={name}
+                rows={4}
+                {...safeInputProps}
                 value={field.value}
                 onChange={(e, {name, value}) => {
                   form.setFieldValue(name, value, true);
+                  onChange && onChange(e, {name, value});
                 }}
-                rows={4}
-                {...inputProps}
               />
               {error && (
                 <span className="sui-error-message">{form.errors[name]}</span>
