@@ -13,7 +13,7 @@ exports[`formik-semantic-ui Checkbox: default  1`] = `
       >
         <input
           class="hidden"
-          id="field_checkbox_0"
+          id="field_checkbox_checked"
           name="checked"
           readonly=""
           tabindex="0"
@@ -21,7 +21,7 @@ exports[`formik-semantic-ui Checkbox: default  1`] = `
           value=""
         />
         <label
-          for="field_checkbox_0"
+          for="field_checkbox_checked"
         >
           Checked
         </label>
@@ -40,12 +40,12 @@ exports[`formik-semantic-ui Dropdown: default  1`] = `
       class="field"
     >
       <label
-        for="field_dropdown_0"
+        for="field_dropdown_name"
       >
         Name
       </label>
       <div
-        id="field_dropdown_0"
+        id="field_dropdown_name"
         name="name"
         role="listbox"
         aria-expanded="false"
@@ -106,7 +106,7 @@ exports[`formik-semantic-ui Input default  1`] = `
       class="field"
     >
       <label
-        for="field_input_0"
+        for="field_input_name"
       >
         Name
       </label>
@@ -114,7 +114,7 @@ exports[`formik-semantic-ui Input default  1`] = `
         class="ui input"
       >
         <input
-          id="field_input_0"
+          id="field_input_name"
           name="name"
           type="text"
           value=""
@@ -162,7 +162,7 @@ exports[`formik-semantic-ui Input with initial value  1`] = `
       class="field"
     >
       <label
-        for="field_input_1"
+        for="field_input_name"
       >
         Name
       </label>
@@ -170,7 +170,7 @@ exports[`formik-semantic-ui Input with initial value  1`] = `
         class="ui input"
       >
         <input
-          id="field_input_1"
+          id="field_input_name"
           name="name"
           type="text"
           value="Justin"
@@ -190,7 +190,7 @@ exports[`formik-semantic-ui Input with input props and field props  1`] = `
       class="eight wide field"
     >
       <label
-        for="field_input_2"
+        for="field_input_name"
       >
         Name
       </label>
@@ -198,7 +198,7 @@ exports[`formik-semantic-ui Input with input props and field props  1`] = `
         class="ui input"
       >
         <input
-          id="field_input_2"
+          id="field_input_name"
           name="name"
           type="password"
           value=""
@@ -241,12 +241,12 @@ exports[`formik-semantic-ui TextArea: default  1`] = `
       class="field"
     >
       <label
-        for="field_textarea_0"
+        for="field_textarea_name"
       >
         Name
       </label>
       <textarea
-        id="field_textarea_0"
+        id="field_textarea_name"
         name="name"
         rows="4"
       />

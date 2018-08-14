@@ -13,7 +13,7 @@ exports[`Form Schema Checkbox 1`] = `
       >
         <input
           class="hidden"
-          id="field_checkbox_0"
+          id="field_checkbox_agree"
           name="agree"
           readonly=""
           tabindex="0"
@@ -21,7 +21,7 @@ exports[`Form Schema Checkbox 1`] = `
           value=""
         />
         <label
-          for="field_checkbox_0"
+          for="field_checkbox_agree"
         >
           I Agree
         </label>
@@ -47,12 +47,12 @@ exports[`Form Schema Dropdown 1`] = `
       class="field"
     >
       <label
-        for="field_dropdown_0"
+        for="field_dropdown_name"
       >
         Name
       </label>
       <div
-        id="field_dropdown_0"
+        id="field_dropdown_name"
         name="name"
         role="listbox"
         aria-expanded="false"
@@ -120,7 +120,7 @@ exports[`Form Schema Input 1`] = `
       class="field"
     >
       <label
-        for="field_input_0"
+        for="field_input_name"
       >
         Name
       </label>
@@ -128,7 +128,7 @@ exports[`Form Schema Input 1`] = `
         class="ui input"
       >
         <input
-          id="field_input_0"
+          id="field_input_name"
           name="name"
           type="text"
           value=""
@@ -155,7 +155,7 @@ exports[`Form Schema Input with value 1`] = `
       class="field"
     >
       <label
-        for="field_input_1"
+        for="field_input_name"
       >
         Name
       </label>
@@ -163,7 +163,7 @@ exports[`Form Schema Input with value 1`] = `
         class="ui input"
       >
         <input
-          id="field_input_1"
+          id="field_input_name"
           name="name"
           type="text"
           value="Justin"
@@ -190,7 +190,7 @@ exports[`Form Schema Input: inputProps & fieldProps 1`] = `
       class="eight wide field"
     >
       <label
-        for="field_input_2"
+        for="field_input_ssn"
       >
         SSN
       </label>
@@ -198,7 +198,7 @@ exports[`Form Schema Input: inputProps & fieldProps 1`] = `
         class="ui input"
       >
         <input
-          id="field_input_2"
+          id="field_input_ssn"
           name="ssn"
           placeholder="SSN"
           type="password"
@@ -226,12 +226,12 @@ exports[`Form Schema TextArea 1`] = `
       class="field"
     >
       <label
-        for="field_textarea_0"
+        for="field_textarea_notes"
       >
         Notes
       </label>
       <textarea
-        id="field_textarea_0"
+        id="field_textarea_notes"
         name="notes"
         rows="4"
       />

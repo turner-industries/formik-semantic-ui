@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {Form, Checkbox} from 'semantic-ui-react';
 import {Field} from 'formik';
 
-let fieldCounter = 0;
 class FormikCheckbox extends Component {
   constructor(props) {
     super(props);
-    this.id = props.id || `field_checkbox_${fieldCounter++}`;
+    const {id, name} = props;
+    this.id = id || `field_checkbox_${name}`;
   }
 
   render() {

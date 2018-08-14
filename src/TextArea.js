@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {Form, TextArea} from 'semantic-ui-react';
 import {Field} from 'formik';
 
-let fieldCounter = 0;
 class FormikTextArea extends Component {
   constructor(props) {
     super(props);
-    this.id = props.id || `field_textarea_${fieldCounter++}`;
+    const {id, name} = props;
+    this.id = id || `field_textarea_${name}`;
   }
 
   render() {

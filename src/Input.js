@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {Form, Input} from 'semantic-ui-react';
 import {Field} from 'formik';
 
-let fieldCounter = 0;
 class FormikInput extends Component {
   constructor(props) {
     super(props);
-    this.id = props.id || `field_input_${fieldCounter++}`;
+    const {id, name} = props;
+    this.id = id || `field_input_${name}`;
   }
 
   render() {

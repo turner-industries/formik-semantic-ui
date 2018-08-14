@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {Form, Dropdown} from 'semantic-ui-react';
 import {Field} from 'formik';
 
-let fieldCounter = 0;
 class FormikDropdown extends Component {
   constructor(props) {
     super(props);
-    this.id = props.id || `field_dropdown_${fieldCounter++}`;
+    const {id, name} = props;
+    this.id = id || `field_dropdown_${name}`;
   }
 
   render() {
