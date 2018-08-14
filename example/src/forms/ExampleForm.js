@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
 import moment from 'moment';
+import {
+  Button,
+  Checkbox,
+  Form,
+  Input,
+  Dropdown,
+  TextArea,
+} from 'formik-semantic-ui';
 
-import {Button, Checkbox, Form, Input, Dropdown, TextArea} from '../lib/index';
 import {DatePicker, FileUpload} from '../custom/index';
 
 class ExampleForm extends Component {

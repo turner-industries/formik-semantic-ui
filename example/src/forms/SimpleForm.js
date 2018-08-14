@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-
-import {Button, Form, Input} from '../lib/index';
+import {Button, Form, Input} from 'formik-semantic-ui';
 
 class SimpleForm extends Component {
   static defaultProps = {

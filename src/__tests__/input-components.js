@@ -1,7 +1,7 @@
 import React from 'react';
 import {fireEvent, render, cleanup} from 'react-testing-library';
 
-import {Checkbox, Dropdown, Form, Input, TextArea} from '../lib/index';
+import {Checkbox, Dropdown, Form, Input, TextArea} from '../index';
 
 describe('formik-semantic-ui', () => {
   afterEach(() => {

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-
-import {Button, Form} from '../lib/index';
+import {Button, Form} from 'formik-semantic-ui';
 
 class SchemaForm extends Component {
   _handleSubmit = (values, formikApi) => {

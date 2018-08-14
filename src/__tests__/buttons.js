@@ -1,7 +1,7 @@
 import React from 'react';
 import {render, cleanup} from 'react-testing-library';
 
-import {Button, Form} from '../lib/index';
+import {Button, Form} from '../index';
 
 describe('Buttons', () => {
   afterEach(() => {
