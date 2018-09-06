@@ -19,7 +19,9 @@
     "start": "rollup -c -w",
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "patch": "npm version patch -m 'update version: %s'",
+    "minor": "npm version minor -m 'update version: %s'"
   },
   "peerDependencies": {
     "formik": "^1.0.0",
