@@ -34,6 +34,8 @@ class App extends Component {
                 emailAddress: 'jobney@turner-industries.com',
                 firstName: 'Justin',
                 lastName: 'Obney',
+                checkbox: true,
+                radio: 2,
               }}
             />
           </Segment>

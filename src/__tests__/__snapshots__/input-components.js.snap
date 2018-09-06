@@ -31,6 +31,37 @@ exports[`formik-semantic-ui Checkbox: default  1`] = `
 </div>
 `;
 
+exports[`formik-semantic-ui Checkbox: default  2`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="field"
+    >
+      <div
+        class="ui checked checkbox"
+      >
+        <input
+          class="hidden"
+          id="field_checkbox_checked"
+          name="checked"
+          readonly=""
+          tabindex="0"
+          type="checkbox"
+          value=""
+        />
+        <label
+          for="field_checkbox_checked"
+        >
+          Checked
+        </label>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
 exports[`formik-semantic-ui Dropdown: default  1`] = `
 <div>
   <form
@@ -226,6 +257,37 @@ exports[`formik-semantic-ui Input without label and with custom "id"  1`] = `
           type="text"
           value=""
         />
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Radio: default  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="field"
+    >
+      <div
+        class="ui checked radio checkbox"
+      >
+        <input
+          class="hidden"
+          id="field_radio_checked_1"
+          name="checked"
+          readonly=""
+          tabindex="0"
+          type="radio"
+          value="1"
+        />
+        <label
+          for="field_radio_checked_1"
+        >
+          Checked
+        </label>
       </div>
     </div>
   </form>

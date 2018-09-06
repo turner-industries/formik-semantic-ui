@@ -1,12 +1,10 @@
 import React from 'react';
 import {fireEvent, render, cleanup} from 'react-testing-library';
 
-import {Checkbox, Dropdown, Form, Input, TextArea} from '../index';
+import {Checkbox, Dropdown, Form, Input, Radio, TextArea} from '../index';
 
 describe('formik-semantic-ui', () => {
-  afterEach(() => {
-    cleanup();
-  });
+  afterEach(cleanup);
 
   describe('Input', () => {
     it('default ', () => {
@@ -82,6 +80,15 @@ describe('formik-semantic-ui', () => {
     const {container} = render(
       <Form initialValues={{checked: true}}>
         <Checkbox label="Checked" name="checked" />
+      </Form>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('Radio: default ', () => {
+    const {container} = render(
+      <Form initialValues={{checked: 1}}>
+        <Radio label="Checked" name="checked" value={1} />
       </Form>
     );
     expect(container).toMatchSnapshot();

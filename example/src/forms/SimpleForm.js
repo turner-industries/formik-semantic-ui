@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Form, Input} from 'formik-semantic-ui';
+import {Button, Form, Input, Checkbox, Radio} from 'formik-semantic-ui';
 
 class SimpleForm extends Component {
   static defaultProps = {
@@ -26,6 +26,11 @@ class SimpleForm extends Component {
           <Input label="First Name" name="firstName" />
           <Input label="Last Name" name="lastName" />
         </Form.Group>
+
+        <Checkbox name="checkbox" label="Check Box" />
+
+        <Radio name="radio" label="Option 1" value={1} />
+        <Radio name="radio" label="Option 2" value={2} />
 
         <Button.Submit>Submit</Button.Submit>
         <Button.Reset>Cancel</Button.Reset>
