@@ -250,6 +250,7 @@ exports[`Form Schema TextArea 1`] = `
 exports[`Form child as a function 1`] = `
 <div>
   <form
+    data-testid="test-id"
     class="ui loading form"
   >
     <button

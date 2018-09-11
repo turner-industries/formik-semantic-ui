@@ -49,12 +49,23 @@ class FormikForm extends React.Component {
       ...formikProps
     } = this.props;
 
+    const testid = formikProps['data-testid'];
+    const formProps = {
+      className,
+      inverted,
+      size,
+    };
+
+    if (testid) {
+      formProps['data-testid'] = testid;
+    }
+
     if (component) {
       console.error(
-        'The formik component prop is not supported in this wrapper'
-      );
-      console.error(
-        'Import the Formik control from the formik package to use this scenario'
+        `
+        The formik component prop is not supported in this wrapper.
+        Import the Formik control from the formik package to use this scenario.
+        `
       );
       throw new Error('Unsupported prop');
     }
@@ -78,7 +89,7 @@ class FormikForm extends React.Component {
           const {handleSubmit, isSubmitting} = renderProps;
           return (
             <SemanticForm
-              {...{className, inverted, size}}
+              {...formProps}
               onSubmit={handleSubmit}
               loading={isSubmitting && !ignoreLoading}
             >

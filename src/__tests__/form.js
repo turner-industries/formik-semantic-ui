@@ -12,7 +12,11 @@ describe('Form', () => {
     const handleSubmit = jest.fn();
 
     const {container, getByText} = render(
-      <Form initialValues={{name: ''}} onSubmit={handleSubmit}>
+      <Form
+        initialValues={{name: ''}}
+        onSubmit={handleSubmit}
+        data-testid="test-id"
+      >
         {({isSubmitting}) => (
           <React.Fragment>
             <Button.Submit disabled={isSubmitting}>Submit</Button.Submit>
