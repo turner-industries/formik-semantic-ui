@@ -74,6 +74,18 @@ describe('formik-semantic-ui', () => {
       fireEvent.change(input, {target: {value: 'Test'}});
       expect(onChange).toHaveBeenCalledWith({name: 'name', value: 'Test'});
     });
+
+    it('inputRef ', () => {
+      let ref;
+
+      render(
+        <Form initialValues={{name: ''}}>
+          <Input label="Name" name="name" inputRef={el => (ref = el)} />
+        </Form>
+      );
+
+      expect(ref.focus).toBeDefined();
+    });
   });
 
   it('Checkbox: default ', () => {
@@ -85,6 +97,18 @@ describe('formik-semantic-ui', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('Checkbox: inputRef', () => {
+    let ref;
+
+    render(
+      <Form initialValues={{name: ''}}>
+        <Checkbox label="Name" name="name" inputRef={el => (ref = el)} />
+      </Form>
+    );
+
+    expect(ref.focus).toBeDefined();
+  });
+
   it('Radio: default ', () => {
     const {container} = render(
       <Form initialValues={{checked: 1}}>
@@ -94,6 +118,18 @@ describe('formik-semantic-ui', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('Radio: inputRef', () => {
+    let ref;
+
+    render(
+      <Form initialValues={{name: ''}}>
+        <Radio label="Name" name="name" inputRef={el => (ref = el)} />
+      </Form>
+    );
+
+    expect(ref.focus).toBeDefined();
+  });
+
   it('TextArea: default ', () => {
     const {container} = render(
       <Form initialValues={{name: ''}}>
@@ -101,6 +137,18 @@ describe('formik-semantic-ui', () => {
       </Form>
     );
     expect(container).toMatchSnapshot();
+  });
+
+  it('TextArea: inputRef', () => {
+    let ref;
+
+    render(
+      <Form initialValues={{name: ''}}>
+        <TextArea label="Name" name="name" inputRef={el => (ref = el)} />
+      </Form>
+    );
+
+    expect(ref.focus).toBeDefined();
   });
 
   it('Dropdown: default ', () => {

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Form, TextArea} from 'semantic-ui-react';
+import React, {Component, Fragment} from 'react';
+import {Form, Ref, TextArea} from 'semantic-ui-react';
 import {Field} from 'formik';
 
 class FormikTextArea extends Component {
@@ -10,8 +10,15 @@ class FormikTextArea extends Component {
   }
 
   render() {
-    const {name, label, inputProps = {}, fieldProps = {}} = this.props;
+    const {
+      name,
+      label,
+      inputProps = {},
+      fieldProps = {},
+      inputRef,
+    } = this.props;
     const {onChange, ...safeInputProps} = inputProps;
+    const RefWrapper = inputRef ? Ref : Fragment;
     return (
       <Field
         name={name}
@@ -20,17 +27,19 @@ class FormikTextArea extends Component {
           return (
             <Form.Field error={!!error} {...fieldProps}>
               {!!label && <label htmlFor={this.id}>{label}</label>}
-              <TextArea
-                id={this.id}
-                name={name}
-                rows={4}
-                {...safeInputProps}
-                value={field.value}
-                onChange={(e, {name, value}) => {
-                  form.setFieldValue(name, value, true);
-                  onChange && onChange(e, {name, value});
-                }}
-              />
+              <RefWrapper innerRef={inputRef}>
+                <TextArea
+                  id={this.id}
+                  name={name}
+                  rows={4}
+                  {...safeInputProps}
+                  value={field.value}
+                  onChange={(e, {name, value}) => {
+                    form.setFieldValue(name, value, true);
+                    onChange && onChange(e, {name, value});
+                  }}
+                />
+              </RefWrapper>
               {error && (
                 <span className="sui-error-message">{form.errors[name]}</span>
               )}

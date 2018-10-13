@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Form, Input} from 'semantic-ui-react';
 import {Field} from 'formik';
+import {InputRef} from './InputRef';
 
 class FormikInput extends Component {
   constructor(props) {
@@ -10,8 +11,15 @@ class FormikInput extends Component {
   }
 
   render() {
-    const {name, label, inputProps = {}, fieldProps = {}} = this.props;
+    const {
+      name,
+      label,
+      inputProps = {},
+      fieldProps = {},
+      inputRef,
+    } = this.props;
     const {onChange, ...safeInputProps} = inputProps;
+
     return (
       <Field
         name={name}
@@ -20,16 +28,20 @@ class FormikInput extends Component {
           return (
             <Form.Field error={!!error} {...fieldProps}>
               {!!label && <label htmlFor={this.id}>{label}</label>}
-              <Input
-                id={this.id}
-                name={name}
-                {...safeInputProps}
-                value={field.value}
-                onChange={(e, {name, value}) => {
-                  form.setFieldValue(name, value, true);
-                  onChange && onChange(e, {name, value});
-                }}
-              />
+
+              <InputRef inputRef={inputRef}>
+                <Input
+                  id={this.id}
+                  name={name}
+                  {...safeInputProps}
+                  value={field.value}
+                  onChange={(e, {name, value}) => {
+                    form.setFieldValue(name, value, true);
+                    onChange && onChange(e, {name, value});
+                  }}
+                />
+              </InputRef>
+
               {error && (
                 <span className="sui-error-message">{form.errors[name]}</span>
               )}

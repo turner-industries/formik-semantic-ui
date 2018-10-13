@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Form, Radio} from 'semantic-ui-react';
 import {Field} from 'formik';
+import {InputRef} from './InputRef';
 
 class FormikCheckbox extends Component {
   constructor(props) {
@@ -10,7 +11,14 @@ class FormikCheckbox extends Component {
   }
 
   render() {
-    const {name, label, value, inputProps = {}, fieldProps = {}} = this.props;
+    const {
+      name,
+      label,
+      value,
+      inputProps = {},
+      fieldProps = {},
+      inputRef,
+    } = this.props;
     const {onChange, ...safeInputProps} = inputProps;
     return (
       <Field
@@ -19,18 +27,20 @@ class FormikCheckbox extends Component {
           const error = form.touched[name] && form.errors[name];
           return (
             <Form.Field error={!!error} {...fieldProps}>
-              <Radio
-                {...safeInputProps}
-                id={this.id}
-                label={label}
-                name={name}
-                value={value}
-                checked={field.value === value}
-                onChange={(e, {name, value}) => {
-                  form.setFieldValue(name, value, true);
-                  onChange && onChange(e, {name, value});
-                }}
-              />
+              <InputRef inputRef={inputRef}>
+                <Radio
+                  {...safeInputProps}
+                  id={this.id}
+                  label={label}
+                  name={name}
+                  value={value}
+                  checked={field.value === value}
+                  onChange={(e, {name, value}) => {
+                    form.setFieldValue(name, value, true);
+                    onChange && onChange(e, {name, value});
+                  }}
+                />
+              </InputRef>
               {error && (
                 <span className="sui-error-message">{form.errors[name]}</span>
               )}
