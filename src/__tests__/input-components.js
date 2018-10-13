@@ -74,6 +74,17 @@ describe('formik-semantic-ui', () => {
       fireEvent.change(input, {target: {value: 'Test'}});
       expect(onChange).toHaveBeenCalledWith({name: 'name', value: 'Test'});
     });
+
+    it('inputRef ', () => {
+      let ref;
+      const {container} = render(
+        <Form initialValues={{name: ''}}>
+          <Input label="Name" name="name" inputRef={el => (ref = el)} />
+        </Form>
+      );
+
+      expect(ref.focus).toBeDefined();
+    });
   });
 
   it('Checkbox: default ', () => {
