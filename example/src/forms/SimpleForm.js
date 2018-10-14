@@ -15,12 +15,17 @@ class SimpleForm extends Component {
     // Handle response / Errors
     formikApi.setFieldError('emailAddress', 'Invalid Email');
     formikApi.setSubmitting(false);
+    this._email.focus();
   };
 
   render() {
     return (
       <Form initialValues={this.props.person} onSubmit={this._handleSubmit}>
-        <Input label="Email" name="emailAddress" />
+        <Input
+          label="Email"
+          name="emailAddress"
+          inputRef={el => (this._email = el)}
+        />
 
         <Form.Group widths="2">
           <Input label="First Name" name="firstName" />

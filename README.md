@@ -25,7 +25,9 @@ Ex:
 </Form>
 ```
 
-Demo: https://codesandbox.io/s/ywjoykw95x
+Demo:
+- https://turner-industries.github.io/formik-semantic-ui/
+- https://codesandbox.io/s/ywjoykw95x
 
 ## Components
 
