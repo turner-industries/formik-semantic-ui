@@ -46,6 +46,7 @@ props:
 | label      | optional | `undefined`            | displays label on `<Form.Field>`                                                                    |
 | inputProps | optional | `{}`                   | props to be passed to matching Semantic-UI component. <br /> Ex: `{type:"password"}` on `<Input />` |
 | fieldProps | optional | `{}`                   | props passed to `<Form.Field />`                                                                    |
+| inputRef   | optional |                        | ref function to get handle to dom element (does not work on DropDown)                               |
 
 Produce Semantic-UI:
 
@@ -90,7 +91,7 @@ Ex:
 
 - Button - `<Button {...props} type="button" />`
 - Button.Submit - `<Button primary {...props} type="submit"  />`
-- Button.Reset - `<Button basic {...props} type="button" onClick={handleReset} />` 
+- Button.Reset - `<Button basic {...props} type="button" onClick={handleReset} />`
 
 ## Creating Custom Components
 
