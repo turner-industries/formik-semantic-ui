@@ -2,6 +2,8 @@ import React, {Component, Fragment} from 'react';
 import {Form, Ref, TextArea} from 'semantic-ui-react';
 import {Field} from 'formik';
 
+import {NullRef} from './InputRef';
+
 class FormikTextArea extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +20,7 @@ class FormikTextArea extends Component {
       inputRef,
     } = this.props;
     const {onChange, ...safeInputProps} = inputProps;
-    const RefWrapper = inputRef ? Ref : Fragment;
+    const RefWrapper = inputRef ? Ref : NullRef;
     return (
       <Field
         name={name}
