@@ -14,6 +14,7 @@ const componentFactory = schema => {
   }
 
   const typeMap = {
+    input: FormikInput,
     dropdown: FormikDropdown,
     textarea: FormikTextArea,
     checkbox: FormikCheckbox,
@@ -21,7 +22,7 @@ const componentFactory = schema => {
 
   return Object.keys(schema).map(name => {
     const property = schema[name];
-    const Component = typeMap[property.type] || FormikInput;
+    const Component = typeMap[property.type] || typeMap.input;
     const {type, value, ...props} = property;
     if (Component === FormikInput) {
       props.inputProps = props.inputProps || {};
@@ -32,8 +33,54 @@ const componentFactory = schema => {
 };
 
 class FormikForm extends React.Component {
+  static defaultProps = {
+    validate: values => {
+      return {};
+    },
+  };
+
   state = {
     schemaComponents: componentFactory(this.props.schema),
+  };
+
+  componentDidMount() {
+    if (this.props.serverValidation) {
+      this._setStatus({serverValidation: true});
+    }
+  }
+
+  _validate = values => {
+    return new Promise((resolve, reject) => {
+      const mappedValidation = Object.keys(this._errors).reduce((acc, key) => {
+        if (!this._touched[key] && this._errors[key]) {
+          acc[key] = this._errors[key];
+        }
+        return acc;
+      }, {});
+      if (Object.keys(mappedValidation).length) {
+        reject(mappedValidation);
+      } else {
+        resolve();
+      }
+    });
+  };
+
+  _onSubmit = (values, formikApi) => {
+    const result = this.props.onSubmit(values, formikApi);
+    const touched = Object.keys(values).reduce(
+      (acc, key) => ({
+        ...acc,
+        [key]: false,
+      }),
+      {}
+    );
+    if (result && result.then) {
+      result.then(() => {
+        formikApi.setTouched(touched);
+      });
+    } else {
+      formikApi.setTouched(touched);
+    }
   };
 
   render() {
@@ -50,6 +97,7 @@ class FormikForm extends React.Component {
     } = this.props;
 
     const testid = formikProps['data-testid'];
+    const {serverValidation} = formikProps;
     const formProps = {
       className,
       inverted,
@@ -71,6 +119,7 @@ class FormikForm extends React.Component {
     }
 
     const {schema = {}} = this.props;
+
     const mappedValues = Object.keys(schema || initialValues || {}).reduce(
       (acc, key) => {
         const property = schema[key] || {};
@@ -83,10 +132,35 @@ class FormikForm extends React.Component {
       initialValues
     );
 
+    const serverProps = serverValidation
+      ? {
+          validate: this._validate,
+          onSubmit: this._onSubmit,
+        }
+      : {};
+
     return (
-      <Formik {...{initialValues: mappedValues, ...formikProps}}>
+      <Formik
+        validateOnChange={false}
+        {...{
+          initialValues: mappedValues,
+          ...formikProps,
+          ...serverProps,
+        }}
+      >
         {renderProps => {
-          const {handleSubmit, isSubmitting} = renderProps;
+          const {
+            handleSubmit,
+            isSubmitting,
+            errors,
+            touched,
+            setFieldError,
+            setStatus,
+          } = renderProps;
+          this._errors = errors;
+          this._touched = touched;
+          this._setFieldError = setFieldError;
+          this._setStatus = setStatus;
           return (
             <SemanticForm
               {...formProps}

@@ -3,6 +3,7 @@ import {Form, Ref, TextArea} from 'semantic-ui-react';
 import {Field} from 'formik';
 
 import {NullRef} from './InputRef';
+import {getFieldError, setFieldValue} from './helpers';
 
 class FormikTextArea extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class FormikTextArea extends Component {
       <Field
         name={name}
         render={({field, form}) => {
-          const error = form.touched[name] && form.errors[name];
+          const error = getFieldError(field, form);
           return (
             <Form.Field error={!!error} {...fieldProps}>
               {!!label && <label htmlFor={this.id}>{label}</label>}
@@ -37,9 +38,12 @@ class FormikTextArea extends Component {
                   {...safeInputProps}
                   value={field.value}
                   onChange={(e, {name, value}) => {
-                    form.setFieldValue(name, value, true);
-                    onChange && onChange(e, {name, value});
+                    setFieldValue(form, name, value, false);
+                    Promise.resolve().then(() => {
+                      onChange && onChange(e, {name, value});
+                    });
                   }}
+                  onBlur={form.handleBlur}
                 />
               </RefWrapper>
               {error && (

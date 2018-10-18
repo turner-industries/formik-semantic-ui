@@ -3,6 +3,13 @@ import {fireEvent, render, cleanup} from 'react-testing-library';
 
 import {Checkbox, Dropdown, Form, Input, Radio, TextArea} from '../index';
 
+const delay = ms =>
+  new Promise(r => {
+    setTimeout(() => {
+      r();
+    }, ms);
+  });
+
 describe('formik-semantic-ui', () => {
   afterEach(cleanup);
 
@@ -57,7 +64,7 @@ describe('formik-semantic-ui', () => {
       expect(container).toMatchSnapshot();
     });
 
-    it('ability to add additional onChange handlers', () => {
+    it('ability to add additional onChange handlers', async () => {
       const onChange = jest.fn();
       const {getByLabelText} = render(
         <Form initialValues={{name: ''}}>
@@ -72,6 +79,7 @@ describe('formik-semantic-ui', () => {
       );
       const input = getByLabelText('Name');
       fireEvent.change(input, {target: {value: 'Test'}});
+      await delay(10);
       expect(onChange).toHaveBeenCalledWith({name: 'name', value: 'Test'});
     });
 

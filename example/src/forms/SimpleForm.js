@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {Button, Form, Input, Checkbox, Radio} from 'formik-semantic-ui';
+import {
+  Button,
+  Dropdown,
+  Form,
+  Input,
+  Checkbox,
+  Radio,
+} from 'formik-semantic-ui';
 
 class SimpleForm extends Component {
   static defaultProps = {
@@ -7,6 +14,9 @@ class SimpleForm extends Component {
       emailAddress: '',
       firstName: '',
       lastName: '',
+      checkbox: true,
+      radio: undefined,
+      dropdown: undefined,
     },
   };
   _handleSubmit = (values, formikApi) => {
@@ -14,13 +24,21 @@ class SimpleForm extends Component {
     console.log(values, formikApi);
     // Handle response / Errors
     formikApi.setFieldError('emailAddress', 'Invalid Email');
+    formikApi.setFieldError('firstName', 'Invalid Name');
+    formikApi.setFieldError('checkbox', 'Invalid Check Box');
+    formikApi.setFieldError('radio', 'Invalid Radio');
+    formikApi.setFieldError('dropdown', 'Invalid Dropdown');
     formikApi.setSubmitting(false);
     this._email.focus();
   };
 
   render() {
     return (
-      <Form initialValues={this.props.person} onSubmit={this._handleSubmit}>
+      <Form
+        initialValues={this.props.person}
+        onSubmit={this._handleSubmit}
+        serverValidation
+      >
         <Input
           label="Email"
           name="emailAddress"
@@ -36,6 +54,11 @@ class SimpleForm extends Component {
 
         <Radio name="radio" label="Option 1" value={1} />
         <Radio name="radio" label="Option 2" value={2} />
+        <Dropdown
+          name="dropdown"
+          label="Dropdown"
+          options={[{text: 'Option 1', value: 1}, {text: 'Option 2', value: 2}]}
+        />
 
         <Button.Submit>Submit</Button.Submit>
         <Button.Reset>Cancel</Button.Reset>

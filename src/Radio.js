@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Form, Radio} from 'semantic-ui-react';
 import {Field} from 'formik';
 import {InputRef} from './InputRef';
+import {getFieldError, setFieldValue} from './helpers';
 
 class FormikCheckbox extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class FormikCheckbox extends Component {
       <Field
         name={name}
         render={({field, form}) => {
-          const error = form.touched[name] && form.errors[name];
+          const error = getFieldError(field, form);
           return (
             <Form.Field error={!!error} {...fieldProps}>
               <InputRef inputRef={inputRef}>
@@ -36,8 +37,10 @@ class FormikCheckbox extends Component {
                   value={value}
                   checked={field.value === value}
                   onChange={(e, {name, value}) => {
-                    form.setFieldValue(name, value, true);
-                    onChange && onChange(e, {name, value});
+                    setFieldValue(form, name, value, true);
+                    Promise.resolve().then(() => {
+                      onChange && onChange(e, {name, value});
+                    });
                   }}
                 />
               </InputRef>

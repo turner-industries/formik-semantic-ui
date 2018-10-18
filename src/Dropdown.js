@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Form, Dropdown} from 'semantic-ui-react';
 import {Field} from 'formik';
+import {getFieldError, setFieldValue} from './helpers';
 
 class FormikDropdown extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class FormikDropdown extends Component {
       <Field
         name={name}
         render={({field, form}) => {
-          const error = form.touched[name] && form.errors[name];
+          const error = getFieldError(field, form);
           return (
             <Form.Field error={!!error} {...fieldProps}>
               {!!label && (
@@ -35,8 +36,10 @@ class FormikDropdown extends Component {
                 {...safeInputProps}
                 value={field.value}
                 onChange={(e, {name, value}) => {
-                  form.setFieldValue(name, value, true);
-                  onChange && onChange(e, {name, value});
+                  setFieldValue(form, name, value, true);
+                  Promise.resolve().then(() => {
+                    onChange && onChange(e, {name, value});
+                  });
                 }}
               />
               {error && (
