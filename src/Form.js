@@ -44,9 +44,14 @@ class FormikForm extends React.Component {
   };
 
   componentDidMount() {
+    this._mounted = true;
     if (this.props.serverValidation) {
       this._setStatus({serverValidation: true});
     }
+  }
+
+  componentWillUnmount() {
+    this._mounted = false;
   }
 
   _validate = values => {
@@ -76,10 +81,14 @@ class FormikForm extends React.Component {
     );
     if (result && result.then) {
       result.then(() => {
-        formikApi.setTouched(touched);
+        if (this._mounted) {
+          formikApi.setTouched(touched);
+        }
       });
     } else {
-      formikApi.setTouched(touched);
+      if (this._mounted) {
+        formikApi.setTouched(touched);
+      }
     }
   };
 

@@ -109,7 +109,7 @@ describe('formik-semantic-ui', () => {
     let ref;
 
     render(
-      <Form initialValues={{name: ''}}>
+      <Form initialValues={{name: false}}>
         <Checkbox label="Name" name="name" inputRef={el => (ref = el)} />
       </Form>
     );

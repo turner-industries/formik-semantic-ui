@@ -1,7 +1,9 @@
 import React from 'react';
 import {render, cleanup, fireEvent, wait} from 'react-testing-library';
 
+import {findAndClick, setFieldValue} from '../test-utils';
 import {Button, Form} from '../index';
+import FormikInput from '../Input';
 
 describe('Form', () => {
   afterEach(() => {
@@ -73,6 +75,37 @@ describe('Form', () => {
     const submitButton = getByText('Submit');
     await fireEvent.click(submitButton);
     expect(container).toMatchSnapshot();
+  });
+
+  it('server validation', async () => {
+    let isTouched;
+    const {getByText, getByLabelText} = render(
+      <Form
+        initialValues={{name: ''}}
+        onSubmit={() => {}}
+        serverValidation
+        render={({isSubmitting, touched}) => {
+          isTouched = touched;
+          return (
+            <React.Fragment>
+              <FormikInput name="name" label="Name" />
+              <Button.Submit disabled={isSubmitting}>Submit</Button.Submit>
+            </React.Fragment>
+          );
+        }}
+      />
+    );
+
+    // make field dirty
+    setFieldValue(getByLabelText(/name/i), 'test');
+    expect(isTouched).toEqual({name: true});
+
+    await findAndClick(() => getByText('Submit'));
+
+    // field should reset after submit
+    await wait(() => {
+      expect(isTouched).toEqual({name: false});
+    });
   });
 
   describe('Schema', () => {
