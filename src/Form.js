@@ -165,6 +165,7 @@ class FormikForm extends React.Component {
             touched,
             setFieldError,
             setStatus,
+            setErrors,
           } = renderProps;
           this._errors = errors;
           this._touched = touched;
@@ -173,7 +174,17 @@ class FormikForm extends React.Component {
           return (
             <SemanticForm
               {...formProps}
-              onSubmit={handleSubmit}
+              onSubmit={e => {
+                if (serverValidation) {
+                  e.persist();
+                  setErrors({});
+                  Promise.resolve().then(() => {
+                    handleSubmit(e);
+                  });
+                } else {
+                  handleSubmit(e);
+                }
+              }}
               loading={isSubmitting && !ignoreLoading}
             >
               {this.state.schemaComponents}
