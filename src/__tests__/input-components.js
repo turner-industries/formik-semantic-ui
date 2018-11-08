@@ -1,7 +1,16 @@
 import React from 'react';
 import {fireEvent, render, cleanup} from 'react-testing-library';
 
-import {Checkbox, Dropdown, Form, Input, Radio, TextArea} from '../index';
+import {
+  Button,
+  Checkbox,
+  Dropdown,
+  Form,
+  Input,
+  Radio,
+  TextArea,
+} from '../index';
+import {findAndClick} from '../test-utils';
 
 const delay = ms =>
   new Promise(r => {
@@ -29,6 +38,22 @@ describe('formik-semantic-ui', () => {
           <Input label="Name" name="name" />
         </Form>
       );
+      expect(container).toMatchSnapshot();
+    });
+
+    it('field level validation', async () => {
+      const validateName = jest.fn(() => {
+        console.log('value');
+        return 'Error fam';
+      });
+      const {container, getByText} = render(
+        <Form initialValues={{name: 'Justin'}}>
+          <Input label="Name" name="name" validate={validateName} />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
       expect(container).toMatchSnapshot();
     });
 
