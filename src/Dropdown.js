@@ -11,7 +11,14 @@ class FormikDropdown extends Component {
   }
 
   render() {
-    const {name, label, options, validate, inputProps = {}, fieldProps = {}} = this.props;
+    const {
+      name,
+      label,
+      options,
+      validate,
+      inputProps = {},
+      fieldProps = {},
+    } = this.props;
     const {onChange, ...safeInputProps} = inputProps;
     return (
       <Field
