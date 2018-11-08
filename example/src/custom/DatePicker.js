@@ -29,6 +29,7 @@ class FormikDatePicker extends Component {
 
   render() {
     const {name, label, inputProps = {}, fieldProps = {}} = this.props;
+    const {onChange, ...safeInputProps} = inputProps;
     return (
       <Field
         name={name}
@@ -47,7 +48,7 @@ class FormikDatePicker extends Component {
                 enableOutsideDays
                 isOutsideRange={() => false}
                 numberOfMonths={1}
-                {...inputProps}
+                {...safeInputProps}
                 date={getDate(field.value)}
                 onDateChange={date => {
                   form.setFieldValue(
@@ -55,6 +56,9 @@ class FormikDatePicker extends Component {
                     date ? date.toDate().toISOString() : date,
                     true
                   );
+                  Promise.resolve().then(() => {
+                    onChange && onChange(date);
+                  });
                 }}
               />
               {error && (
