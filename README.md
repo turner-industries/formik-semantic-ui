@@ -65,8 +65,8 @@ Produce Semantic-UI:
 `<Form />`
 
 - Usage
-  - [Simple Usage](https://github.com/turner-industries/formik-semantic-ui/blob/master/src/forms/SimpleForm.js) - Components as children
-  - [Enhanced Usage](https://github.com/turner-industries/formik-semantic-ui/blob/master/src/forms/ExampleForm.js) - "Render Prop" similar to default Formik "Render Prop"
+  - [Simple Usage](https://github.com/turner-industries/formik-semantic-ui/blob/master/example/src/forms/SimpleForm.js) - Components as children
+  - [Enhanced Usage](https://github.com/turner-industries/formik-semantic-ui/blob/master/example/src/forms/ExampleForm.js) - "Render Prop" similar to default Formik "Render Prop"
     - `render={formikProps => <Form />}`
     - function as a child
 - Automatically binds Formik `handleSubmit` for Semantic UI Form `onSubmit`
