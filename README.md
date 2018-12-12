@@ -110,7 +110,7 @@ Current:
 - Defaults to `Input` if type is unknown
 - Unknown types pass their `type` to `Input type={type}`
 - You can provide an initial value
-- Ver basic width via `fieldProps`
+- Very basic width via `fieldProps`
 
 
 ### TODO:
