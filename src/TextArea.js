@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Form, Ref, TextArea} from 'semantic-ui-react';
-import {Field} from 'formik';
+import {Field, getIn} from 'formik';
 
 import {NullRef} from './InputRef';
 import {getFieldError, setFieldValue} from './helpers';
@@ -47,7 +47,7 @@ class FormikTextArea extends Component {
                 />
               </RefWrapper>
               {error && (
-                <span className="sui-error-message">{form.errors[name]}</span>
+                <span className="sui-error-message">{getIn(form.errors, name)}</span>
               )}
             </Form.Field>
           );
