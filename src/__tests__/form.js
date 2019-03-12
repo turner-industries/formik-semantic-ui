@@ -108,6 +108,28 @@ describe('Form', () => {
     });
   });
 
+  it('errors in complex types', async () => {
+    const {getByText, container} = render(
+      <Form
+        initialValues={{values: [{ name: 'test' }]}}
+        validate={() => ({ values: [{ name: 'Error' }]})}
+        onSubmit={() => {}}
+        render={() => {
+          return (
+            <React.Fragment>
+              <FormikInput name="values.0.name" label="Name" />
+              <Button.Submit>Submit</Button.Submit>
+            </React.Fragment>
+          );
+        }}
+      />
+    );
+
+    await findAndClick(() => getByText('Submit'));
+
+    expect(container).toMatchSnapshot();
+  });
+
   describe('Schema', () => {
     it('Input', () => {
       const schema = {

@@ -266,6 +266,46 @@ exports[`Form child as a function 1`] = `
 </div>
 `;
 
+exports[`Form errors in complex types 1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <label
+        for="field_input_values.0.name"
+      >
+        Name
+      </label>
+      <div
+        class="ui input"
+      >
+        <input
+          id="field_input_values.0.name"
+          name="values.0.name"
+          type="text"
+          value="test"
+        />
+      </div>
+      <span
+        class="sui-error-message"
+      >
+        Error
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+      role="button"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
+
 exports[`Form ignore loading 1`] = `
 <div>
   <form
