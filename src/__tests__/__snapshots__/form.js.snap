@@ -291,7 +291,6 @@ exports[`Form errors in complex types 1`] = `
     <button
       type="submit"
       class="ui primary button"
-      role="button"
     >
       Submit
     </button>
