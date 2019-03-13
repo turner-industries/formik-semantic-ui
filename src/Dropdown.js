@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Form, Dropdown} from 'semantic-ui-react';
-import {Field} from 'formik';
+import {Field, getIn} from 'formik';
 import {getFieldError, setFieldValue} from './helpers';
 
 class FormikDropdown extends Component {
@@ -43,7 +43,7 @@ class FormikDropdown extends Component {
                 }}
               />
               {error && (
-                <span className="sui-error-message">{form.errors[name]}</span>
+                <span className="sui-error-message">{getIn(form.errors, name)}</span>
               )}
             </Form.Field>
           );
