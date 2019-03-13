@@ -15,6 +15,7 @@ class FormikInput extends Component {
     const {
       name,
       label,
+      validate,
       inputProps = {},
       fieldProps = {},
       inputRef,
@@ -24,6 +25,7 @@ class FormikInput extends Component {
     return (
       <Field
         name={name}
+        validate={validate}
         render={({field, form}) => {
           const error = getFieldError(field, form);
 

@@ -16,6 +16,7 @@ class FormikCheckbox extends Component {
       name,
       label,
       value,
+      validate,
       inputProps = {},
       fieldProps = {},
       inputRef,
@@ -24,6 +25,7 @@ class FormikCheckbox extends Component {
     return (
       <Field
         name={name}
+        validate={validate}
         render={({field, form}) => {
           const error = getFieldError(field, form);
           return (
