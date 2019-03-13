@@ -8,7 +8,6 @@ exports[`Buttons Button.Reset 1`] = `
     <button
       type="button"
       class="ui basic button"
-      role="button"
     >
       Basic Button
     </button>
@@ -24,7 +23,6 @@ exports[`Buttons Button.Submit 1`] = `
     <button
       type="submit"
       class="ui primary button"
-      role="button"
     >
       Basic Button
     </button>
@@ -40,7 +38,6 @@ exports[`Buttons default 1`] = `
     <button
       type="button"
       class="ui button"
-      role="button"
     >
       Basic Button
     </button>

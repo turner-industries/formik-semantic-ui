@@ -27,7 +27,7 @@
     "formik": "^1.0.0",
     "react": "^15.6.1 || ^16.0.0",
     "react-dom": "^15.6.1 || ^16.0.0",
-    "semantic-ui-react": "^0.82.0"
+    "semantic-ui-react": "^0.82.0 || ^0.83.0 || ^0.84.0 || ^0.85.0 || ^0.86.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -59,7 +59,7 @@
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-url": "^1.4.0",
     "semantic-ui-css": "^2.3.3",
-    "semantic-ui-react": "^0.82.3"
+    "semantic-ui-react": "^0.82.0 || ^0.83.0 || ^0.84.0 || ^0.85.0 || ^0.86.0"
   },
   "dependencies": {
     "hoist-non-react-statics": "^3.0.1",
