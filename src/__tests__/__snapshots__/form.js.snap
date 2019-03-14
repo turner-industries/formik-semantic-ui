@@ -30,7 +30,6 @@ exports[`Form Schema Checkbox 1`] = `
     <button
       type="submit"
       class="ui primary button"
-      role="button"
     >
       Submit
     </button>
@@ -103,7 +102,6 @@ exports[`Form Schema Dropdown 1`] = `
     <button
       type="submit"
       class="ui primary button"
-      role="button"
     >
       Submit
     </button>
@@ -138,7 +136,6 @@ exports[`Form Schema Input 1`] = `
     <button
       type="submit"
       class="ui primary button"
-      role="button"
     >
       Submit
     </button>
@@ -173,7 +170,6 @@ exports[`Form Schema Input with value 1`] = `
     <button
       type="submit"
       class="ui primary button"
-      role="button"
     >
       Submit
     </button>
@@ -209,7 +205,6 @@ exports[`Form Schema Input: inputProps & fieldProps 1`] = `
     <button
       type="submit"
       class="ui primary button"
-      role="button"
     >
       Submit
     </button>
@@ -239,7 +234,6 @@ exports[`Form Schema TextArea 1`] = `
     <button
       type="submit"
       class="ui primary button"
-      role="button"
     >
       Submit
     </button>
@@ -256,7 +250,6 @@ exports[`Form child as a function 1`] = `
     <button
       type="submit"
       class="ui primary disabled button"
-      role="button"
       disabled=""
       tabindex="-1"
     >
@@ -298,7 +291,6 @@ exports[`Form errors in complex types 1`] = `
     <button
       type="submit"
       class="ui primary button"
-      role="button"
     >
       Submit
     </button>
@@ -314,7 +306,6 @@ exports[`Form ignore loading 1`] = `
     <button
       type="submit"
       class="ui primary disabled button"
-      role="button"
       disabled=""
       tabindex="-1"
     >
@@ -332,7 +323,6 @@ exports[`Form render props 1`] = `
     <button
       type="submit"
       class="ui primary disabled button"
-      role="button"
       disabled=""
       tabindex="-1"
     >
