@@ -157,7 +157,6 @@ exports[`formik-semantic-ui Input field level validation 1`] = `
     <button
       type="submit"
       class="ui primary button"
-      role="button"
     >
       Save
     </button>
@@ -217,41 +216,6 @@ exports[`formik-semantic-ui Input with initial value  1`] = `
         />
       </div>
     </div>
-  </form>
-</div>
-`;
-
-exports[`formik-semantic-ui Input with initial value  2`] = `
-<div>
-  <form
-    class="ui form"
-  >
-    <div
-      class="field"
-    >
-      <label
-        for="field_input_name"
-      >
-        Name
-      </label>
-      <div
-        class="ui input"
-      >
-        <input
-          id="field_input_name"
-          name="name"
-          type="text"
-          value="Justin"
-        />
-      </div>
-    </div>
-    <button
-      type="submit"
-      class="ui primary button"
-      role="button"
-    >
-      Save
-    </button>
   </form>
 </div>
 `;
