@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Form, Dropdown} from 'semantic-ui-react';
-import {Field, getIn} from 'formik';
+import {FastField, Field, getIn} from 'formik';
 import {getFieldError, setFieldValue} from './helpers';
 
 class FormikDropdown extends Component {
@@ -18,10 +18,12 @@ class FormikDropdown extends Component {
       validate,
       inputProps = {},
       fieldProps = {},
+      fast
     } = this.props;
     const {onChange, ...safeInputProps} = inputProps;
+    const DesiredField = fast === true ? FastField : Field;
     return (
-      <Field
+      <DesiredField
         name={name}
         validate={validate}
         render={({field, form}) => {

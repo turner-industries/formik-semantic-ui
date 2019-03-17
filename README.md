@@ -49,6 +49,7 @@ props:
 | inputProps | optional | `{}`                   | props to be passed to matching Semantic-UI component. <br /> Ex: `{type:"password"}` on `<Input />` |
 | fieldProps | optional | `{}`                   | props passed to `<Form.Field />`                                                                    |
 | inputRef   | optional |                        | ref function to get handle to dom element (does not work on DropDown)                               |
+| fast       | optional | false                  | whether to use formik's FastField (beneficial for large forms)                                      |
 
 Produce Semantic-UI:
 
