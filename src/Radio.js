@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Form, Radio} from 'semantic-ui-react';
-import {Field, getIn} from 'formik';
+import {FastField, Field, getIn} from 'formik';
 import {InputRef} from './InputRef';
 import {getFieldError, setFieldValue} from './helpers';
 
@@ -20,10 +20,12 @@ class FormikCheckbox extends Component {
       inputProps = {},
       fieldProps = {},
       inputRef,
+      fast
     } = this.props;
     const {onChange, ...safeInputProps} = inputProps;
+    const DesiredField = fast === true ? FastField : Field;
     return (
-      <Field
+      <DesiredField
         name={name}
         validate={validate}
         render={({field, form}) => {

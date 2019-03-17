@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {Form, Ref, TextArea} from 'semantic-ui-react';
-import {Field, getIn} from 'formik';
+import {FastField, Field, getIn} from 'formik';
 
 import {NullRef} from './InputRef';
 import {getFieldError, setFieldValue} from './helpers';
@@ -20,11 +20,13 @@ class FormikTextArea extends Component {
       inputProps = {},
       fieldProps = {},
       inputRef,
+      fast
     } = this.props;
     const {onChange, ...safeInputProps} = inputProps;
     const RefWrapper = inputRef ? Ref : NullRef;
+    const DesiredField = fast === true ? FastField : Field;
     return (
-      <Field
+      <DesiredField
         name={name}
         validate={validate}
         render={({field, form}) => {

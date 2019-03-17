@@ -32,6 +32,15 @@ describe('formik-semantic-ui', () => {
       expect(container).toMatchSnapshot();
     });
 
+    it('fast ', () => {
+      const {container} = render(
+        <Form initialValues={{name: ''}}>
+          <Input label="Name" name="name" fast={true} />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
+
     it('with initial value ', () => {
       const {container} = render(
         <Form initialValues={{name: 'Justin'}}>
@@ -43,7 +52,6 @@ describe('formik-semantic-ui', () => {
 
     it('field level validation', async () => {
       const validateName = jest.fn(() => {
-        console.log('value');
         return 'Error fam';
       });
       const {container, getByText} = render(
@@ -130,6 +138,15 @@ describe('formik-semantic-ui', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('Checkbox: fast ', () => {
+    const {container} = render(
+      <Form initialValues={{checked: true}}>
+        <Checkbox label="Checked" name="checked" fast={true} />
+      </Form>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
   it('Checkbox: inputRef', () => {
     let ref;
 
@@ -151,6 +168,15 @@ describe('formik-semantic-ui', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('Radio: fast ', () => {
+    const {container} = render(
+      <Form initialValues={{checked: 1}}>
+        <Radio label="Checked" name="checked" value={1} fast={true} />
+      </Form>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
   it('Radio: inputRef', () => {
     let ref;
 
@@ -167,6 +193,15 @@ describe('formik-semantic-ui', () => {
     const {container} = render(
       <Form initialValues={{name: ''}}>
         <TextArea label="Name" name="name" />
+      </Form>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('TextArea: fast ', () => {
+    const {container} = render(
+      <Form initialValues={{name: ''}}>
+        <TextArea label="Name" name="name" fast={true} />
       </Form>
     );
     expect(container).toMatchSnapshot();
@@ -194,6 +229,23 @@ describe('formik-semantic-ui', () => {
             {text: 'Justin', value: 'justin'},
             {text: 'Not Justin', value: 'not-justin'},
           ]}
+        />
+      </Form>
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('Dropdown: fast ', () => {
+    const {container} = render(
+      <Form initialValues={{name: ''}}>
+        <Dropdown
+          label="Name"
+          name="name"
+          options={[
+            {text: 'Justin', value: 'justin'},
+            {text: 'Not Justin', value: 'not-justin'},
+          ]}
+          fast={true}
         />
       </Form>
     );

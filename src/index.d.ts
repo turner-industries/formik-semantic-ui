@@ -23,6 +23,7 @@ declare module "formik-semantic-ui" {
     label?: React.ReactNode;
     validate?: ((value: any) => string | Promise<void> | undefined);
     fieldProps?: FormFieldProps;
+    fast?: boolean;
   }
 
   export interface InputComponentProps extends FormikComponentProps {
