@@ -1,4 +1,4 @@
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+type OmitKeys<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
 declare module "formik-semantic-ui" {
   import {FormikConfig, FormikValues} from "formik";
@@ -72,7 +72,7 @@ declare module "formik-semantic-ui" {
     inputProps?: FormInputProps;
   }
 
-  export class Form<Values = FormikValues> extends React.Component<Omit<FormikConfig<Values>, "component"> |
+  export class Form<Values = FormikValues> extends React.Component<OmitKeys<FormikConfig<Values>, "component"> |
     Pick<StrictFormProps, "className" | "inverted" | "size"> | {
     serverValidation?: boolean
     ignoreLoading?: boolean
@@ -99,7 +99,7 @@ declare module "formik-semantic-ui" {
   export class Dropdown extends React.Component<DropdownComponentProps> {
   }
 
-  class ButtonBase extends React.Component<Omit<FormButtonProps, "type">> {
+  class ButtonBase extends React.Component<OmitKeys<FormButtonProps, "type">> {
   }
 
   export class Button extends ButtonBase {
