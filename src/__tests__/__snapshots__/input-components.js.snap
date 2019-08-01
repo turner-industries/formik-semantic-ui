@@ -19,6 +19,7 @@ exports[`formik-semantic-ui Checkbox: default  1`] = `
           tabindex="0"
           type="checkbox"
           value=""
+          checked=""
         />
         <label
           for="field_checkbox_checked"
@@ -50,6 +51,7 @@ exports[`formik-semantic-ui Checkbox: fast  1`] = `
           tabindex="0"
           type="checkbox"
           value=""
+          checked=""
         />
         <label
           for="field_checkbox_checked"
@@ -415,6 +417,7 @@ exports[`formik-semantic-ui Radio: default  1`] = `
           tabindex="0"
           type="radio"
           value="1"
+          checked=""
         />
         <label
           for="field_radio_checked_1"
@@ -446,6 +449,7 @@ exports[`formik-semantic-ui Radio: fast  1`] = `
           tabindex="0"
           type="radio"
           value="1"
+          checked=""
         />
         <label
           for="field_radio_checked_1"
