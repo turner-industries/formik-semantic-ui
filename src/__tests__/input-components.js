@@ -29,6 +29,10 @@ class CustomErrorComponent extends React.Component {
   }
 }
 
+const validateField = jest.fn(() => {
+  return 'Error fam';
+});
+
 describe('formik-semantic-ui', () => {
   afterEach(cleanup);
 
@@ -61,12 +65,9 @@ describe('formik-semantic-ui', () => {
     });
 
     it('field level validation', async () => {
-      const validateName = jest.fn(() => {
-        return 'Error fam';
-      });
       const {container, getByText} = render(
         <Form initialValues={{name: 'Justin'}}>
-          <Input label="Name" name="name" validate={validateName} />
+          <Input label="Name" name="name" validate={validateField} />
           <Button.Submit>Save</Button.Submit>
         </Form>
       );
@@ -76,15 +77,12 @@ describe('formik-semantic-ui', () => {
     });
 
     it('with custom error component ', async () => {
-      const validateName = jest.fn(() => {
-        return 'Error fam';
-      });
       const {container, getByText} = render(
         <Form initialValues={{name: 'Justin'}}>
           <Input
             label="Name"
             name="name"
-            validate={validateName}
+            validate={validateField}
             errorComponent={CustomErrorComponent}
           />
           <Button.Submit>Save</Button.Submit>
@@ -191,9 +189,6 @@ describe('formik-semantic-ui', () => {
     });
 
     it('field level validation ', async () => {
-      const validateField = jest.fn(() => {
-        return 'Error fam';
-      });
       const {container, getByText} = render(
         <Form initialValues={{checked: true}}>
           <Checkbox label="Checked" name="checked" validate={validateField} />
@@ -206,9 +201,6 @@ describe('formik-semantic-ui', () => {
     });
 
     it('with custom error component ', async () => {
-      const validateField = jest.fn(() => {
-        return 'Error fam';
-      });
       const {container, getByText} = render(
         <Form initialValues={{checked: true}}>
           <Checkbox
@@ -258,9 +250,6 @@ describe('formik-semantic-ui', () => {
     });
 
     it('field level validation ', async () => {
-      const validateField = jest.fn(() => {
-        return 'Error fam';
-      });
       const {container, getByText} = render(
         <Form initialValues={{checked: true}}>
           <Checkbox
@@ -278,9 +267,6 @@ describe('formik-semantic-ui', () => {
     });
 
     it('with custom error component ', async () => {
-      const validateField = jest.fn(() => {
-        return 'Error fam';
-      });
       const {container, getByText} = render(
         <Form initialValues={{checked: 1}}>
           <Radio
@@ -331,9 +317,6 @@ describe('formik-semantic-ui', () => {
     });
 
     it('field level validation ', async () => {
-      const validateField = jest.fn(() => {
-        return 'Error fam';
-      });
       const {container, getByText} = render(
         <Form initialValues={{name: ''}}>
           <TextArea label="Name" name="name" validate={validateField} />
@@ -346,9 +329,6 @@ describe('formik-semantic-ui', () => {
     });
 
     it('with custom error component ', async () => {
-      const validateField = jest.fn(() => {
-        return 'Error fam';
-      });
       const {container, getByText} = render(
         <Form initialValues={{name: ''}}>
           <TextArea
@@ -401,9 +381,6 @@ describe('formik-semantic-ui', () => {
     });
 
     it('field level validation ', async () => {
-      const validateField = jest.fn(() => {
-        return 'Error fam';
-      });
       const {container, getByText} = render(
         <Form initialValues={{name: ''}}>
           <Dropdown
@@ -424,9 +401,6 @@ describe('formik-semantic-ui', () => {
     });
 
     it('with custom error component ', async () => {
-      const validateField = jest.fn(() => {
-        return 'Error fam';
-      });
       const {container, getByText} = render(
         <Form initialValues={{name: ''}}>
           <Dropdown
