@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Form, Checkbox} from 'semantic-ui-react';
 import {FastField, Field, getIn} from 'formik';
+import ErrorMessage from './ErrorMessage';
 import {InputRef} from './InputRef';
 import {getFieldError, setFieldValue} from './helpers';
 
@@ -47,7 +48,7 @@ class FormikCheckbox extends Component {
                 />
               </InputRef>
               {error && (
-                <span className="sui-error-message">{getIn(form.errors, name)}</span>
+                React.createElement(ErrorMessage, { message: getIn(form.errors, name) })
               )}
             </Form.Field>
           );
