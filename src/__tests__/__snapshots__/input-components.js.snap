@@ -64,6 +64,92 @@ exports[`formik-semantic-ui Checkbox fast  1`] = `
 </div>
 `;
 
+exports[`formik-semantic-ui Checkbox field level validation  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <div
+        class="ui checked checkbox"
+      >
+        <input
+          class="hidden"
+          id="field_checkbox_checked"
+          name="checked"
+          readonly=""
+          tabindex="0"
+          type="checkbox"
+          value=""
+          checked=""
+        />
+        <label
+          for="field_checkbox_checked"
+        >
+          Checked
+        </label>
+      </div>
+      <span
+        class="sui-error-message"
+      >
+        Error fam
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Checkbox with custom error component  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <div
+        class="ui checked checkbox"
+      >
+        <input
+          class="hidden"
+          id="field_checkbox_checked"
+          name="checked"
+          readonly=""
+          tabindex="0"
+          type="checkbox"
+          value=""
+          checked=""
+        />
+        <label
+          for="field_checkbox_checked"
+        >
+          Checked
+        </label>
+      </div>
+      <div
+        class="ui red pointing basic label"
+      >
+        Error fam
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
 exports[`formik-semantic-ui Dropdown default  1`] = `
 <div>
   <form
