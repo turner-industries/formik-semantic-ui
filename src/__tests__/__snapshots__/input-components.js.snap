@@ -872,3 +872,71 @@ exports[`formik-semantic-ui TextArea fast  1`] = `
   </form>
 </div>
 `;
+
+exports[`formik-semantic-ui TextArea field level validation  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <label
+        for="field_textarea_name"
+      >
+        Name
+      </label>
+      <textarea
+        id="field_textarea_name"
+        name="name"
+        rows="4"
+      />
+      <span
+        class="sui-error-message"
+      >
+        Error fam
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui TextArea with custom error component  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <label
+        for="field_textarea_name"
+      >
+        Name
+      </label>
+      <textarea
+        id="field_textarea_name"
+        name="name"
+        rows="4"
+      />
+      <div
+        class="ui red pointing basic label"
+      >
+        Error fam
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;

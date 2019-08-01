@@ -329,6 +329,41 @@ describe('formik-semantic-ui', () => {
 
       expect(ref.focus).toBeDefined();
     });
+
+    it('field level validation ', async () => {
+      const validateField = jest.fn(() => {
+        return 'Error fam';
+      });
+      const {container, getByText} = render(
+        <Form initialValues={{name: ''}}>
+          <TextArea label="Name" name="name" validate={validateField} />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error component ', async () => {
+      const validateField = jest.fn(() => {
+        return 'Error fam';
+      });
+      const {container, getByText} = render(
+        <Form initialValues={{name: ''}}>
+          <TextArea
+            label="Name"
+            name="name"
+            validate={validateField}
+            errorComponent={CustomErrorComponent}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
   });
 
   describe('Dropdown', () => {
