@@ -159,126 +159,134 @@ describe('formik-semantic-ui', () => {
     });
   });
 
-  it('Checkbox: default ', () => {
-    const {container} = render(
-      <Form initialValues={{checked: true}}>
-        <Checkbox label="Checked" name="checked" />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
+  describe('Checkbox', () => {
+    it('default ', () => {
+      const {container} = render(
+        <Form initialValues={{checked: true}}>
+          <Checkbox label="Checked" name="checked" />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
+
+    it('fast ', () => {
+      const {container} = render(
+        <Form initialValues={{checked: true}}>
+          <Checkbox label="Checked" name="checked" fast={true} />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
+
+    it('inputRef', () => {
+      let ref;
+
+      render(
+        <Form initialValues={{name: false}}>
+          <Checkbox label="Name" name="name" inputRef={el => (ref = el)} />
+        </Form>
+      );
+
+      expect(ref.focus).toBeDefined();
+    });
   });
 
-  it('Checkbox: fast ', () => {
-    const {container} = render(
-      <Form initialValues={{checked: true}}>
-        <Checkbox label="Checked" name="checked" fast={true} />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
+  describe('Radio', () => {
+    it('default ', () => {
+      const {container} = render(
+        <Form initialValues={{checked: 1}}>
+          <Radio label="Checked" name="checked" value={1} />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
+
+    it('fast ', () => {
+      const {container} = render(
+        <Form initialValues={{checked: 1}}>
+          <Radio label="Checked" name="checked" value={1} fast={true} />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
+
+    it('inputRef', () => {
+      let ref;
+
+      render(
+        <Form initialValues={{name: ''}}>
+          <Radio label="Name" name="name" inputRef={el => (ref = el)} />
+        </Form>
+      );
+
+      expect(ref.focus).toBeDefined();
+    });
   });
 
-  it('Checkbox: inputRef', () => {
-    let ref;
+  describe('TextArea', () => {
+    it('default ', () => {
+      const {container} = render(
+        <Form initialValues={{name: ''}}>
+          <TextArea label="Name" name="name" />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
 
-    render(
-      <Form initialValues={{name: false}}>
-        <Checkbox label="Name" name="name" inputRef={el => (ref = el)} />
-      </Form>
-    );
+    it('fast ', () => {
+      const {container} = render(
+        <Form initialValues={{name: ''}}>
+          <TextArea label="Name" name="name" fast={true} />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
 
-    expect(ref.focus).toBeDefined();
+    it('inputRef', () => {
+      let ref;
+
+      render(
+        <Form initialValues={{name: ''}}>
+          <TextArea label="Name" name="name" inputRef={el => (ref = el)} />
+        </Form>
+      );
+
+      expect(ref.focus).toBeDefined();
+    });
   });
 
-  it('Radio: default ', () => {
-    const {container} = render(
-      <Form initialValues={{checked: 1}}>
-        <Radio label="Checked" name="checked" value={1} />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
-  });
+  describe('Dropdown', () => {
+    it('default ', () => {
+      const {container} = render(
+        <Form initialValues={{name: ''}}>
+          <Dropdown
+            label="Name"
+            name="name"
+            options={[
+              {text: 'Justin', value: 'justin'},
+              {text: 'Not Justin', value: 'not-justin'},
+            ]}
+          />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
 
-  it('Radio: fast ', () => {
-    const {container} = render(
-      <Form initialValues={{checked: 1}}>
-        <Radio label="Checked" name="checked" value={1} fast={true} />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it('Radio: inputRef', () => {
-    let ref;
-
-    render(
-      <Form initialValues={{name: ''}}>
-        <Radio label="Name" name="name" inputRef={el => (ref = el)} />
-      </Form>
-    );
-
-    expect(ref.focus).toBeDefined();
-  });
-
-  it('TextArea: default ', () => {
-    const {container} = render(
-      <Form initialValues={{name: ''}}>
-        <TextArea label="Name" name="name" />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it('TextArea: fast ', () => {
-    const {container} = render(
-      <Form initialValues={{name: ''}}>
-        <TextArea label="Name" name="name" fast={true} />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it('TextArea: inputRef', () => {
-    let ref;
-
-    render(
-      <Form initialValues={{name: ''}}>
-        <TextArea label="Name" name="name" inputRef={el => (ref = el)} />
-      </Form>
-    );
-
-    expect(ref.focus).toBeDefined();
-  });
-
-  it('Dropdown: default ', () => {
-    const {container} = render(
-      <Form initialValues={{name: ''}}>
-        <Dropdown
-          label="Name"
-          name="name"
-          options={[
-            {text: 'Justin', value: 'justin'},
-            {text: 'Not Justin', value: 'not-justin'},
-          ]}
-        />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it('Dropdown: fast ', () => {
-    const {container} = render(
-      <Form initialValues={{name: ''}}>
-        <Dropdown
-          label="Name"
-          name="name"
-          options={[
-            {text: 'Justin', value: 'justin'},
-            {text: 'Not Justin', value: 'not-justin'},
-          ]}
-          fast={true}
-        />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
+    it('fast ', () => {
+      const {container} = render(
+        <Form initialValues={{name: ''}}>
+          <Dropdown
+            label="Name"
+            name="name"
+            options={[
+              {text: 'Justin', value: 'justin'},
+              {text: 'Not Justin', value: 'not-justin'},
+            ]}
+            fast={true}
+          />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
   });
 });
