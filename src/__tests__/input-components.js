@@ -93,6 +93,23 @@ describe('formik-semantic-ui', () => {
       expect(container).toMatchSnapshot();
     });
 
+    it('with custom error render prop ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{name: 'Justin'}}>
+          <Input
+            label="Name"
+            name="name"
+            validate={validateField}
+            errorComponent={({ message }) => <span className="my-error">{message}</span>}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
     it('without label and with custom "id" ', () => {
       const {container} = render(
         <Form initialValues={{name: ''}}>
@@ -216,6 +233,23 @@ describe('formik-semantic-ui', () => {
       await findAndClick(() => getByText('Save'));
       expect(container).toMatchSnapshot();
     });
+
+    it('with custom error render prop ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{checked: true}}>
+          <Checkbox
+            label="Checked"
+            name="checked"
+            validate={validateField}
+            errorComponent={({ message }) => <span className="my-error">{message}</span>}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
   });
 
   describe('Radio', () => {
@@ -283,6 +317,24 @@ describe('formik-semantic-ui', () => {
       await findAndClick(() => getByText('Save'));
       expect(container).toMatchSnapshot();
     });
+
+    it('with custom error render prop ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{checked: 1}}>
+          <Radio
+            label="Checked"
+            name="checked"
+            value={1}
+            validate={validateField}
+            errorComponent={({ message }) => <span className="my-error">{message}</span>}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
   });
 
   describe('TextArea', () => {
@@ -336,6 +388,23 @@ describe('formik-semantic-ui', () => {
             name="name"
             validate={validateField}
             errorComponent={CustomErrorComponent}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error render prop ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{name: ''}}>
+          <TextArea
+            label="Name"
+            name="name"
+            validate={validateField}
+            errorComponent={({ message }) => <span className="my-error">{message}</span>}
           />
           <Button.Submit>Save</Button.Submit>
         </Form>
@@ -412,6 +481,27 @@ describe('formik-semantic-ui', () => {
             ]}
             validate={validateField}
             errorComponent={CustomErrorComponent}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error render prop ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{name: ''}}>
+          <Dropdown
+            label="Name"
+            name="name"
+            options={[
+              {text: 'Justin', value: 'justin'},
+              {text: 'Not Justin', value: 'not-justin'},
+            ]}
+            validate={validateField}
+            errorComponent={({ message }) => <span className="my-error">{message}</span>}
           />
           <Button.Submit>Save</Button.Submit>
         </Form>
