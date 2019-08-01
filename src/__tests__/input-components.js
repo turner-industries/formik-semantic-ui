@@ -1,5 +1,6 @@
 import React from 'react';
 import {fireEvent, render, cleanup} from 'react-testing-library';
+import { Label } from 'semantic-ui-react';
 
 import {
   Button,
@@ -18,6 +19,15 @@ const delay = ms =>
       r();
     }, ms);
   });
+
+class CustomErrorComponent extends React.Component {
+  render() {
+    const {message} = this.props;
+    return (
+      <Label basic color="red" pointing>{message}</Label>
+    );
+  }
+}
 
 describe('formik-semantic-ui', () => {
   afterEach(cleanup);
@@ -57,6 +67,26 @@ describe('formik-semantic-ui', () => {
       const {container, getByText} = render(
         <Form initialValues={{name: 'Justin'}}>
           <Input label="Name" name="name" validate={validateName} />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error component ', async () => {
+      const validateName = jest.fn(() => {
+        return 'Error fam';
+      });
+      const {container, getByText} = render(
+        <Form initialValues={{name: 'Justin'}}>
+          <Input
+            label="Name"
+            name="name"
+            validate={validateName}
+            errorComponent={CustomErrorComponent}
+          />
           <Button.Submit>Save</Button.Submit>
         </Form>
       );

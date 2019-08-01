@@ -319,6 +319,45 @@ exports[`formik-semantic-ui Input with custom "id"  1`] = `
 </div>
 `;
 
+exports[`formik-semantic-ui Input with custom error component  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <label
+        for="field_input_name"
+      >
+        Name
+      </label>
+      <div
+        class="ui input"
+      >
+        <input
+          id="field_input_name"
+          name="name"
+          type="text"
+          value="Justin"
+        />
+      </div>
+      <div
+        class="ui red pointing basic label"
+      >
+        Error fam
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
 exports[`formik-semantic-ui Input with initial value  1`] = `
 <div>
   <form
