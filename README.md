@@ -48,7 +48,7 @@ props:
 | label          | optional | `undefined`                         | displays label on `<Form.Field>`                                                                    |
 | inputProps     | optional | `{}`                                | props to be passed to matching Semantic-UI component. <br /> Ex: `{type:"password"}` on `<Input />` |
 | fieldProps     | optional | `{}`                                | props passed to `<Form.Field />`                                                                    |
-| errorComponent | optional | span with class `sui-error-message` | Use a component that receive a `message` prop                                                       |
+| errorComponent | optional | span with class `sui-error-message` | Use a component that receive a `message` prop (can be used also as a render prop)                   |
 | inputRef       | optional |                                     | ref function to get handle to dom element (does not work on DropDown)                               |
 | fast           | optional | false                               | whether to use formik's FastField (beneficial for large forms)                                      |
 
