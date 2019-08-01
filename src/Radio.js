@@ -20,6 +20,7 @@ class FormikCheckbox extends Component {
       validate,
       inputProps = {},
       fieldProps = {},
+      errorComponent = ErrorMessage,
       inputRef,
       fast
     } = this.props;
@@ -50,7 +51,7 @@ class FormikCheckbox extends Component {
                 />
               </InputRef>
               {error && (
-                React.createElement(ErrorMessage, { message: getIn(form.errors, name) })
+                React.createElement(errorComponent, { message: getIn(form.errors, name) })
               )}
             </Form.Field>
           );

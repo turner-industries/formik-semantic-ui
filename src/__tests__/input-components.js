@@ -256,6 +256,47 @@ describe('formik-semantic-ui', () => {
 
       expect(ref.focus).toBeDefined();
     });
+
+    it('field level validation ', async () => {
+      const validateField = jest.fn(() => {
+        return 'Error fam';
+      });
+      const {container, getByText} = render(
+        <Form initialValues={{checked: true}}>
+          <Checkbox
+            label="Checked"
+            name="checked"
+            value={1}
+            validate={validateField}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error component ', async () => {
+      const validateField = jest.fn(() => {
+        return 'Error fam';
+      });
+      const {container, getByText} = render(
+        <Form initialValues={{checked: 1}}>
+          <Radio
+            label="Checked"
+            name="checked"
+            value={1}
+            validate={validateField}
+            errorComponent={CustomErrorComponent}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
   });
 
   describe('TextArea', () => {
