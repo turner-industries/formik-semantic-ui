@@ -19,6 +19,7 @@ class FormikDropdown extends Component {
       validate,
       inputProps = {},
       fieldProps = {},
+      errorComponent = ErrorMessage,
       fast
     } = this.props;
     const {onChange, ...safeInputProps} = inputProps;
@@ -54,7 +55,7 @@ class FormikDropdown extends Component {
                 }}
               />
               {error && (
-                React.createElement(ErrorMessage, { message: getIn(form.errors, name) })
+                React.createElement(errorComponent, { message: getIn(form.errors, name) })
               )}
             </Form.Field>
           );
