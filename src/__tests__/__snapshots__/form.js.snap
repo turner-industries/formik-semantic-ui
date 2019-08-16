@@ -109,6 +109,104 @@ exports[`Form Schema Dropdown 1`] = `
 </div>
 `;
 
+exports[`Form Schema Dropdown: allow additions 1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="field"
+    >
+      <label
+        for="field_dropdown_name"
+      >
+        Name
+      </label>
+      <div
+        id="field_dropdown_name"
+        name="name"
+        role="combobox"
+        aria-expanded="true"
+        class="ui active visible multiple search selection dropdown"
+      >
+        <a
+          class="ui label"
+          value="Paula"
+        >
+          Paula
+          <i
+            aria-hidden="true"
+            class="delete icon"
+          />
+        </a>
+        <input
+          aria-autocomplete="list"
+          autocomplete="off"
+          class="search"
+          tabindex="0"
+          type="text"
+          value=""
+          style=""
+        />
+        <span
+          class="sizer"
+          style=""
+        >
+          Paula
+        </span>
+        <div
+          class="text"
+          role="alert"
+          aria-live="polite"
+        />
+        <i
+          aria-hidden="true"
+          class="dropdown icon"
+        />
+        <div
+          aria-multiselectable="true"
+          role="listbox"
+          class="visible menu transition"
+        >
+          <div
+            style="pointer-events: all;"
+            role="option"
+            aria-checked="false"
+            aria-selected="true"
+            class="selected item"
+          >
+            <span
+              class="text"
+            >
+              Justin
+            </span>
+          </div>
+          <div
+            style="pointer-events: all;"
+            role="option"
+            aria-checked="false"
+            aria-selected="false"
+            class="item"
+          >
+            <span
+              class="text"
+            >
+              Not Justin
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
+
 exports[`Form Schema Input 1`] = `
 <div>
   <form
