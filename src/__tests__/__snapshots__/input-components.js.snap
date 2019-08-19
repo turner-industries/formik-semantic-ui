@@ -19,7 +19,6 @@ exports[`formik-semantic-ui Checkbox default  1`] = `
           tabindex="0"
           type="checkbox"
           value=""
-          checked=""
         />
         <label
           for="field_checkbox_checked"
@@ -51,7 +50,6 @@ exports[`formik-semantic-ui Checkbox fast  1`] = `
           tabindex="0"
           type="checkbox"
           value=""
-          checked=""
         />
         <label
           for="field_checkbox_checked"
@@ -83,7 +81,6 @@ exports[`formik-semantic-ui Checkbox field level validation  1`] = `
           tabindex="0"
           type="checkbox"
           value=""
-          checked=""
         />
         <label
           for="field_checkbox_checked"
@@ -126,7 +123,6 @@ exports[`formik-semantic-ui Checkbox with custom error component  1`] = `
           tabindex="0"
           type="checkbox"
           value=""
-          checked=""
         />
         <label
           for="field_checkbox_checked"
@@ -169,7 +165,6 @@ exports[`formik-semantic-ui Checkbox with custom error render prop  1`] = `
           tabindex="0"
           type="checkbox"
           value=""
-          checked=""
         />
         <label
           for="field_checkbox_checked"
@@ -855,7 +850,6 @@ exports[`formik-semantic-ui Radio default  1`] = `
           tabindex="0"
           type="radio"
           value="1"
-          checked=""
         />
         <label
           for="field_radio_checked_1"
@@ -887,7 +881,6 @@ exports[`formik-semantic-ui Radio fast  1`] = `
           tabindex="0"
           type="radio"
           value="1"
-          checked=""
         />
         <label
           for="field_radio_checked_1"
@@ -919,7 +912,6 @@ exports[`formik-semantic-ui Radio field level validation  1`] = `
           tabindex="0"
           type="checkbox"
           value=""
-          checked=""
         />
         <label
           for="field_checkbox_checked"
@@ -962,7 +954,6 @@ exports[`formik-semantic-ui Radio with custom error component  1`] = `
           tabindex="0"
           type="radio"
           value="1"
-          checked=""
         />
         <label
           for="field_radio_checked_1"
@@ -1005,7 +996,6 @@ exports[`formik-semantic-ui Radio with custom error render prop  1`] = `
           tabindex="0"
           type="radio"
           value="1"
-          checked=""
         />
         <label
           for="field_radio_checked_1"
