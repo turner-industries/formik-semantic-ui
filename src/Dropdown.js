@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Form, Dropdown} from 'semantic-ui-react';
 import {FastField, Field, getIn} from 'formik';
+import ErrorMessage from './ErrorMessage';
 import {getFieldError, setFieldValue} from './helpers';
 
 class FormikDropdown extends Component {
@@ -18,6 +19,7 @@ class FormikDropdown extends Component {
       validate,
       inputProps = {},
       fieldProps = {},
+      errorComponent = ErrorMessage,
       fast
     } = this.props;
     const {onChange, ...safeInputProps} = inputProps;
@@ -53,7 +55,7 @@ class FormikDropdown extends Component {
                 }}
               />
               {error && (
-                <span className="sui-error-message">{getIn(form.errors, name)}</span>
+                React.createElement(errorComponent, { message: getIn(form.errors, name) })
               )}
             </Form.Field>
           );

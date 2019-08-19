@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`formik-semantic-ui Checkbox: default  1`] = `
+exports[`formik-semantic-ui Checkbox default  1`] = `
 <div>
   <form
     class="ui form"
@@ -32,7 +32,7 @@ exports[`formik-semantic-ui Checkbox: default  1`] = `
 </div>
 `;
 
-exports[`formik-semantic-ui Checkbox: fast  1`] = `
+exports[`formik-semantic-ui Checkbox fast  1`] = `
 <div>
   <form
     class="ui form"
@@ -64,7 +64,136 @@ exports[`formik-semantic-ui Checkbox: fast  1`] = `
 </div>
 `;
 
-exports[`formik-semantic-ui Dropdown: default  1`] = `
+exports[`formik-semantic-ui Checkbox field level validation  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <div
+        class="ui checked checkbox"
+      >
+        <input
+          class="hidden"
+          id="field_checkbox_checked"
+          name="checked"
+          readonly=""
+          tabindex="0"
+          type="checkbox"
+          value=""
+          checked=""
+        />
+        <label
+          for="field_checkbox_checked"
+        >
+          Checked
+        </label>
+      </div>
+      <span
+        class="sui-error-message"
+      >
+        Error fam
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Checkbox with custom error component  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <div
+        class="ui checked checkbox"
+      >
+        <input
+          class="hidden"
+          id="field_checkbox_checked"
+          name="checked"
+          readonly=""
+          tabindex="0"
+          type="checkbox"
+          value=""
+          checked=""
+        />
+        <label
+          for="field_checkbox_checked"
+        >
+          Checked
+        </label>
+      </div>
+      <div
+        class="ui red pointing basic label"
+      >
+        Error fam
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Checkbox with custom error render prop  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <div
+        class="ui checked checkbox"
+      >
+        <input
+          class="hidden"
+          id="field_checkbox_checked"
+          name="checked"
+          readonly=""
+          tabindex="0"
+          type="checkbox"
+          value=""
+          checked=""
+        />
+        <label
+          for="field_checkbox_checked"
+        >
+          Checked
+        </label>
+      </div>
+      <span
+        class="my-error"
+      >
+        Error fam
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Dropdown default  1`] = `
 <div>
   <form
     class="ui form"
@@ -130,7 +259,7 @@ exports[`formik-semantic-ui Dropdown: default  1`] = `
 </div>
 `;
 
-exports[`formik-semantic-ui Dropdown: fast  1`] = `
+exports[`formik-semantic-ui Dropdown fast  1`] = `
 <div>
   <form
     class="ui form"
@@ -192,6 +321,237 @@ exports[`formik-semantic-ui Dropdown: fast  1`] = `
         </div>
       </div>
     </div>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Dropdown field level validation  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <label
+        for="field_dropdown_name"
+      >
+        Name
+      </label>
+      <div
+        id="field_dropdown_name"
+        name="name"
+        role="listbox"
+        aria-expanded="false"
+        class="ui selection dropdown"
+        tabindex="0"
+      >
+        <div
+          class="text"
+          role="alert"
+          aria-live="polite"
+        />
+        <i
+          aria-hidden="true"
+          class="dropdown icon"
+        />
+        <div
+          class="menu transition"
+        >
+          <div
+            style="pointer-events: all;"
+            role="option"
+            aria-checked="false"
+            aria-selected="true"
+            class="selected item"
+          >
+            <span
+              class="text"
+            >
+              Justin
+            </span>
+          </div>
+          <div
+            style="pointer-events: all;"
+            role="option"
+            aria-checked="false"
+            aria-selected="false"
+            class="item"
+          >
+            <span
+              class="text"
+            >
+              Not Justin
+            </span>
+          </div>
+        </div>
+      </div>
+      <span
+        class="sui-error-message"
+      >
+        Error fam
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Dropdown with custom error component  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <label
+        for="field_dropdown_name"
+      >
+        Name
+      </label>
+      <div
+        id="field_dropdown_name"
+        name="name"
+        role="listbox"
+        aria-expanded="false"
+        class="ui selection dropdown"
+        tabindex="0"
+      >
+        <div
+          class="text"
+          role="alert"
+          aria-live="polite"
+        />
+        <i
+          aria-hidden="true"
+          class="dropdown icon"
+        />
+        <div
+          class="menu transition"
+        >
+          <div
+            style="pointer-events: all;"
+            role="option"
+            aria-checked="false"
+            aria-selected="true"
+            class="selected item"
+          >
+            <span
+              class="text"
+            >
+              Justin
+            </span>
+          </div>
+          <div
+            style="pointer-events: all;"
+            role="option"
+            aria-checked="false"
+            aria-selected="false"
+            class="item"
+          >
+            <span
+              class="text"
+            >
+              Not Justin
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ui red pointing basic label"
+      >
+        Error fam
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Dropdown with custom error render prop  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <label
+        for="field_dropdown_name"
+      >
+        Name
+      </label>
+      <div
+        id="field_dropdown_name"
+        name="name"
+        role="listbox"
+        aria-expanded="false"
+        class="ui selection dropdown"
+        tabindex="0"
+      >
+        <div
+          class="text"
+          role="alert"
+          aria-live="polite"
+        />
+        <i
+          aria-hidden="true"
+          class="dropdown icon"
+        />
+        <div
+          class="menu transition"
+        >
+          <div
+            style="pointer-events: all;"
+            role="option"
+            aria-checked="false"
+            aria-selected="true"
+            class="selected item"
+          >
+            <span
+              class="text"
+            >
+              Justin
+            </span>
+          </div>
+          <div
+            style="pointer-events: all;"
+            role="option"
+            aria-checked="false"
+            aria-selected="false"
+            class="item"
+          >
+            <span
+              class="text"
+            >
+              Not Justin
+            </span>
+          </div>
+        </div>
+      </div>
+      <span
+        class="my-error"
+      >
+        Error fam
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
   </form>
 </div>
 `;
@@ -319,6 +679,84 @@ exports[`formik-semantic-ui Input with custom "id"  1`] = `
 </div>
 `;
 
+exports[`formik-semantic-ui Input with custom error component  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <label
+        for="field_input_name"
+      >
+        Name
+      </label>
+      <div
+        class="ui input"
+      >
+        <input
+          id="field_input_name"
+          name="name"
+          type="text"
+          value="Justin"
+        />
+      </div>
+      <div
+        class="ui red pointing basic label"
+      >
+        Error fam
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Input with custom error render prop  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <label
+        for="field_input_name"
+      >
+        Name
+      </label>
+      <div
+        class="ui input"
+      >
+        <input
+          id="field_input_name"
+          name="name"
+          type="text"
+          value="Justin"
+        />
+      </div>
+      <span
+        class="my-error"
+      >
+        Error fam
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
 exports[`formik-semantic-ui Input with initial value  1`] = `
 <div>
   <form
@@ -398,7 +836,7 @@ exports[`formik-semantic-ui Input without label and with custom "id"  1`] = `
 </div>
 `;
 
-exports[`formik-semantic-ui Radio: default  1`] = `
+exports[`formik-semantic-ui Radio default  1`] = `
 <div>
   <form
     class="ui form"
@@ -430,7 +868,7 @@ exports[`formik-semantic-ui Radio: default  1`] = `
 </div>
 `;
 
-exports[`formik-semantic-ui Radio: fast  1`] = `
+exports[`formik-semantic-ui Radio fast  1`] = `
 <div>
   <form
     class="ui form"
@@ -462,7 +900,136 @@ exports[`formik-semantic-ui Radio: fast  1`] = `
 </div>
 `;
 
-exports[`formik-semantic-ui TextArea: default  1`] = `
+exports[`formik-semantic-ui Radio field level validation  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <div
+        class="ui checked checkbox"
+      >
+        <input
+          class="hidden"
+          id="field_checkbox_checked"
+          name="checked"
+          readonly=""
+          tabindex="0"
+          type="checkbox"
+          value=""
+          checked=""
+        />
+        <label
+          for="field_checkbox_checked"
+        >
+          Checked
+        </label>
+      </div>
+      <span
+        class="sui-error-message"
+      >
+        Error fam
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Radio with custom error component  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <div
+        class="ui checked radio checkbox"
+      >
+        <input
+          class="hidden"
+          id="field_radio_checked_1"
+          name="checked"
+          readonly=""
+          tabindex="0"
+          type="radio"
+          value="1"
+          checked=""
+        />
+        <label
+          for="field_radio_checked_1"
+        >
+          Checked
+        </label>
+      </div>
+      <div
+        class="ui red pointing basic label"
+      >
+        Error fam
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui Radio with custom error render prop  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <div
+        class="ui checked radio checkbox"
+      >
+        <input
+          class="hidden"
+          id="field_radio_checked_1"
+          name="checked"
+          readonly=""
+          tabindex="0"
+          type="radio"
+          value="1"
+          checked=""
+        />
+        <label
+          for="field_radio_checked_1"
+        >
+          Checked
+        </label>
+      </div>
+      <span
+        class="my-error"
+      >
+        Error fam
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui TextArea default  1`] = `
 <div>
   <form
     class="ui form"
@@ -485,7 +1052,7 @@ exports[`formik-semantic-ui TextArea: default  1`] = `
 </div>
 `;
 
-exports[`formik-semantic-ui TextArea: fast  1`] = `
+exports[`formik-semantic-ui TextArea fast  1`] = `
 <div>
   <form
     class="ui form"
@@ -504,6 +1071,108 @@ exports[`formik-semantic-ui TextArea: fast  1`] = `
         rows="4"
       />
     </div>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui TextArea field level validation  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <label
+        for="field_textarea_name"
+      >
+        Name
+      </label>
+      <textarea
+        id="field_textarea_name"
+        name="name"
+        rows="4"
+      />
+      <span
+        class="sui-error-message"
+      >
+        Error fam
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui TextArea with custom error component  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <label
+        for="field_textarea_name"
+      >
+        Name
+      </label>
+      <textarea
+        id="field_textarea_name"
+        name="name"
+        rows="4"
+      />
+      <div
+        class="ui red pointing basic label"
+      >
+        Error fam
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
+  </form>
+</div>
+`;
+
+exports[`formik-semantic-ui TextArea with custom error render prop  1`] = `
+<div>
+  <form
+    class="ui form"
+  >
+    <div
+      class="error field"
+    >
+      <label
+        for="field_textarea_name"
+      >
+        Name
+      </label>
+      <textarea
+        id="field_textarea_name"
+        name="name"
+        rows="4"
+      />
+      <span
+        class="my-error"
+      >
+        Error fam
+      </span>
+    </div>
+    <button
+      type="submit"
+      class="ui primary button"
+    >
+      Save
+    </button>
   </form>
 </div>
 `;

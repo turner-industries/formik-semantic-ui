@@ -1,5 +1,6 @@
 import React from 'react';
 import {fireEvent, render, cleanup} from 'react-testing-library';
+import { Label } from 'semantic-ui-react';
 
 import {
   Button,
@@ -18,6 +19,19 @@ const delay = ms =>
       r();
     }, ms);
   });
+
+class CustomErrorComponent extends React.Component {
+  render() {
+    const {message} = this.props;
+    return (
+      <Label basic color="red" pointing>{message}</Label>
+    );
+  }
+}
+
+const validateField = jest.fn(() => {
+  return 'Error fam';
+});
 
 describe('formik-semantic-ui', () => {
   afterEach(cleanup);
@@ -51,12 +65,43 @@ describe('formik-semantic-ui', () => {
     });
 
     it('field level validation', async () => {
-      const validateName = jest.fn(() => {
-        return 'Error fam';
-      });
       const {container, getByText} = render(
         <Form initialValues={{name: 'Justin'}}>
-          <Input label="Name" name="name" validate={validateName} />
+          <Input label="Name" name="name" validate={validateField} />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error component ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{name: 'Justin'}}>
+          <Input
+            label="Name"
+            name="name"
+            validate={validateField}
+            errorComponent={CustomErrorComponent}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error render prop ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{name: 'Justin'}}>
+          <Input
+            label="Name"
+            name="name"
+            validate={validateField}
+            errorComponent={({ message }) => <span className="my-error">{message}</span>}
+          />
           <Button.Submit>Save</Button.Submit>
         </Form>
       );
@@ -129,126 +174,341 @@ describe('formik-semantic-ui', () => {
     });
   });
 
-  it('Checkbox: default ', () => {
-    const {container} = render(
-      <Form initialValues={{checked: true}}>
-        <Checkbox label="Checked" name="checked" />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
+  describe('Checkbox', () => {
+    it('default ', () => {
+      const {container} = render(
+        <Form initialValues={{checked: true}}>
+          <Checkbox label="Checked" name="checked" />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
+
+    it('fast ', () => {
+      const {container} = render(
+        <Form initialValues={{checked: true}}>
+          <Checkbox label="Checked" name="checked" fast={true} />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
+
+    it('inputRef', () => {
+      let ref;
+
+      render(
+        <Form initialValues={{name: false}}>
+          <Checkbox label="Name" name="name" inputRef={el => (ref = el)} />
+        </Form>
+      );
+
+      expect(ref.focus).toBeDefined();
+    });
+
+    it('field level validation ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{checked: true}}>
+          <Checkbox label="Checked" name="checked" validate={validateField} />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error component ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{checked: true}}>
+          <Checkbox
+            label="Checked"
+            name="checked"
+            validate={validateField}
+            errorComponent={CustomErrorComponent}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error render prop ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{checked: true}}>
+          <Checkbox
+            label="Checked"
+            name="checked"
+            validate={validateField}
+            errorComponent={({ message }) => <span className="my-error">{message}</span>}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  it('Checkbox: fast ', () => {
-    const {container} = render(
-      <Form initialValues={{checked: true}}>
-        <Checkbox label="Checked" name="checked" fast={true} />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
+  describe('Radio', () => {
+    it('default ', () => {
+      const {container} = render(
+        <Form initialValues={{checked: 1}}>
+          <Radio label="Checked" name="checked" value={1} />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
+
+    it('fast ', () => {
+      const {container} = render(
+        <Form initialValues={{checked: 1}}>
+          <Radio label="Checked" name="checked" value={1} fast={true} />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
+
+    it('inputRef', () => {
+      let ref;
+
+      render(
+        <Form initialValues={{name: ''}}>
+          <Radio label="Name" name="name" inputRef={el => (ref = el)} />
+        </Form>
+      );
+
+      expect(ref.focus).toBeDefined();
+    });
+
+    it('field level validation ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{checked: true}}>
+          <Checkbox
+            label="Checked"
+            name="checked"
+            value={1}
+            validate={validateField}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error component ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{checked: 1}}>
+          <Radio
+            label="Checked"
+            name="checked"
+            value={1}
+            validate={validateField}
+            errorComponent={CustomErrorComponent}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error render prop ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{checked: 1}}>
+          <Radio
+            label="Checked"
+            name="checked"
+            value={1}
+            validate={validateField}
+            errorComponent={({ message }) => <span className="my-error">{message}</span>}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  it('Checkbox: inputRef', () => {
-    let ref;
+  describe('TextArea', () => {
+    it('default ', () => {
+      const {container} = render(
+        <Form initialValues={{name: ''}}>
+          <TextArea label="Name" name="name" />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
 
-    render(
-      <Form initialValues={{name: false}}>
-        <Checkbox label="Name" name="name" inputRef={el => (ref = el)} />
-      </Form>
-    );
+    it('fast ', () => {
+      const {container} = render(
+        <Form initialValues={{name: ''}}>
+          <TextArea label="Name" name="name" fast={true} />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
 
-    expect(ref.focus).toBeDefined();
+    it('inputRef', () => {
+      let ref;
+
+      render(
+        <Form initialValues={{name: ''}}>
+          <TextArea label="Name" name="name" inputRef={el => (ref = el)} />
+        </Form>
+      );
+
+      expect(ref.focus).toBeDefined();
+    });
+
+    it('field level validation ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{name: ''}}>
+          <TextArea label="Name" name="name" validate={validateField} />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error component ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{name: ''}}>
+          <TextArea
+            label="Name"
+            name="name"
+            validate={validateField}
+            errorComponent={CustomErrorComponent}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
+
+    it('with custom error render prop ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{name: ''}}>
+          <TextArea
+            label="Name"
+            name="name"
+            validate={validateField}
+            errorComponent={({ message }) => <span className="my-error">{message}</span>}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
+
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
   });
 
-  it('Radio: default ', () => {
-    const {container} = render(
-      <Form initialValues={{checked: 1}}>
-        <Radio label="Checked" name="checked" value={1} />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
-  });
+  describe('Dropdown', () => {
+    it('default ', () => {
+      const {container} = render(
+        <Form initialValues={{name: ''}}>
+          <Dropdown
+            label="Name"
+            name="name"
+            options={[
+              {text: 'Justin', value: 'justin'},
+              {text: 'Not Justin', value: 'not-justin'},
+            ]}
+          />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
 
-  it('Radio: fast ', () => {
-    const {container} = render(
-      <Form initialValues={{checked: 1}}>
-        <Radio label="Checked" name="checked" value={1} fast={true} />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
-  });
+    it('fast ', () => {
+      const {container} = render(
+        <Form initialValues={{name: ''}}>
+          <Dropdown
+            label="Name"
+            name="name"
+            options={[
+              {text: 'Justin', value: 'justin'},
+              {text: 'Not Justin', value: 'not-justin'},
+            ]}
+            fast={true}
+          />
+        </Form>
+      );
+      expect(container).toMatchSnapshot();
+    });
 
-  it('Radio: inputRef', () => {
-    let ref;
+    it('field level validation ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{name: ''}}>
+          <Dropdown
+            label="Name"
+            name="name"
+            options={[
+              {text: 'Justin', value: 'justin'},
+              {text: 'Not Justin', value: 'not-justin'},
+            ]}
+            validate={validateField}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
 
-    render(
-      <Form initialValues={{name: ''}}>
-        <Radio label="Name" name="name" inputRef={el => (ref = el)} />
-      </Form>
-    );
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
 
-    expect(ref.focus).toBeDefined();
-  });
+    it('with custom error component ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{name: ''}}>
+          <Dropdown
+            label="Name"
+            name="name"
+            options={[
+              {text: 'Justin', value: 'justin'},
+              {text: 'Not Justin', value: 'not-justin'},
+            ]}
+            validate={validateField}
+            errorComponent={CustomErrorComponent}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
 
-  it('TextArea: default ', () => {
-    const {container} = render(
-      <Form initialValues={{name: ''}}>
-        <TextArea label="Name" name="name" />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
-  });
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
 
-  it('TextArea: fast ', () => {
-    const {container} = render(
-      <Form initialValues={{name: ''}}>
-        <TextArea label="Name" name="name" fast={true} />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
-  });
+    it('with custom error render prop ', async () => {
+      const {container, getByText} = render(
+        <Form initialValues={{name: ''}}>
+          <Dropdown
+            label="Name"
+            name="name"
+            options={[
+              {text: 'Justin', value: 'justin'},
+              {text: 'Not Justin', value: 'not-justin'},
+            ]}
+            validate={validateField}
+            errorComponent={({ message }) => <span className="my-error">{message}</span>}
+          />
+          <Button.Submit>Save</Button.Submit>
+        </Form>
+      );
 
-  it('TextArea: inputRef', () => {
-    let ref;
-
-    render(
-      <Form initialValues={{name: ''}}>
-        <TextArea label="Name" name="name" inputRef={el => (ref = el)} />
-      </Form>
-    );
-
-    expect(ref.focus).toBeDefined();
-  });
-
-  it('Dropdown: default ', () => {
-    const {container} = render(
-      <Form initialValues={{name: ''}}>
-        <Dropdown
-          label="Name"
-          name="name"
-          options={[
-            {text: 'Justin', value: 'justin'},
-            {text: 'Not Justin', value: 'not-justin'},
-          ]}
-        />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it('Dropdown: fast ', () => {
-    const {container} = render(
-      <Form initialValues={{name: ''}}>
-        <Dropdown
-          label="Name"
-          name="name"
-          options={[
-            {text: 'Justin', value: 'justin'},
-            {text: 'Not Justin', value: 'not-justin'},
-          ]}
-          fast={true}
-        />
-      </Form>
-    );
-    expect(container).toMatchSnapshot();
+      await findAndClick(() => getByText('Save'));
+      expect(container).toMatchSnapshot();
+    });
   });
 });
