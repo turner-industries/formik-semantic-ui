@@ -102,8 +102,8 @@ Ex:
 ### TODO: Create a better factory
 
 Current:
-- [DatePicker](https://github.com/turner-industries/formik-semantic-ui/blob/master/src/custom/DatePicker.js)
-- [FileUpload](https://github.com/turner-industries/formik-semantic-ui/blob/master/src/custom/FileUpload.js)
+- [DatePicker](https://github.com/turner-industries/formik-semantic-ui/blob/master/example/src/custom/DatePicker.js)
+- [FileUpload](https://github.com/turner-industries/formik-semantic-ui/blob/master/example/src/custom/FileUpload.js)
 
 ## Schema Driven
 
