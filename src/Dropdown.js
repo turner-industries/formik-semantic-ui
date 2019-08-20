@@ -9,13 +9,19 @@ class FormikDropdown extends Component {
     super(props);
     const {id, name} = props;
     this.id = id || `field_dropdown_${name}`;
+    this.state = {options: props.options}
+  }
+
+  handleAddition(e, { value }) {
+    this.setState(prevState => ({
+      options: [{ text: value, key: value, value }, ...prevState.options],
+    }))
   }
 
   render() {
     const {
       name,
       label,
-      options,
       validate,
       inputProps = {},
       fieldProps = {},
@@ -41,12 +47,13 @@ class FormikDropdown extends Component {
                 ref={el => (this._dropdown = el)}
                 id={this.id}
                 name={name}
-                options={options}
+                options={this.state.options}
                 selectOnBlur={false}
                 selectOnNavigation={false}
                 selection
                 {...safeInputProps}
                 value={field.value}
+                onAddItem={this.handleAddition.bind(this)}
                 onChange={(e, {name, value}) => {
                   setFieldValue(form, name, value, true);
                   Promise.resolve().then(() => {

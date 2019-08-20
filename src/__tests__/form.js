@@ -243,5 +243,37 @@ describe('Form', () => {
 
       expect(container).toMatchSnapshot();
     });
+
+    it('Dropdown: allow additions', async  () => {
+      const schema = {
+        name: {
+          type: 'dropdown',
+          label: 'Name',
+          options: [
+            {text: 'Justin', value: 'justin', key: 'justin'},
+            {text: 'Not Justin', value: 'not-justin', key: 'not-justin'},
+          ],
+          inputProps: {
+            multiple: true,
+            selection: true,
+            search: true,
+            allowAdditions: true
+          }
+        },
+      };
+
+      const {container, getByText, getByLabelText} = render(
+        <Form initialValues={{name: ''}} onSubmit={() => {}} schema={schema}>
+          <Button.Submit>Submit</Button.Submit>
+        </Form>
+      );
+
+      const input = getByLabelText(/Name/i).querySelector('input')
+
+      setFieldValue(input, ['Paula']);
+      fireEvent.keyDown(input, { key: 'Enter', code: 13 })
+
+      expect(container).toMatchSnapshot();
+    });
   });
 });
