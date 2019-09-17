@@ -19,6 +19,7 @@ class FormikInput extends Component {
       validate,
       inputProps = {},
       fieldProps = {},
+      validateOnChange,
       errorComponent = ErrorMessage,
       inputRef,
       fast
@@ -44,7 +45,7 @@ class FormikInput extends Component {
                   {...safeInputProps}
                   value={field.value}
                   onChange={(e, {name, value}) => {
-                    setFieldValue(form, name, value, false);
+                    setFieldValue(form, name, value, validateOnChange);
                     Promise.resolve().then(() => {
                       onChange && onChange(e, {name, value});
                     });
