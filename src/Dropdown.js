@@ -16,6 +16,7 @@ class FormikDropdown extends Component {
       name,
       label,
       options,
+      multiple = false,
       validate,
       inputProps = {},
       fieldProps = {},
@@ -42,6 +43,7 @@ class FormikDropdown extends Component {
                 id={this.id}
                 name={name}
                 options={options}
+                multiple={multiple}
                 selectOnBlur={false}
                 selectOnNavigation={false}
                 selection
