@@ -16,7 +16,7 @@ Ex:
 ```js
 <Form initialValues={{emailAddress:""}} onSubmit={(values, formikApi) => {
   api.save(values);
-  formikApi.setFieldError('emailAdress', 'already in use')
+  formikApi.setFieldError('emailAddress', 'already in use')
 }}>
   <Input label="Email" name="emailAddress" />
 
